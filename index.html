@@ -1,177 +1,98 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隐私政策 - 速去印 / VideoSnap Hub</title>
+    <title>速去印 / VideoSnap Hub 隐私政策</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-        header { background: #4CAF50; color: white; padding: 20px; text-align: center; }
-        main { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
-        h1,h2,h3 { color: #4CAF50; }
-        select { padding: 5px 10px; margin-bottom: 20px; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        select { margin-bottom: 20px; padding: 5px; }
         .section { margin-bottom: 30px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>隐私政策 / Privacy Policy</h1>
-        <select id="languageSwitcher">
-            <option value="zh">简体中文</option>
-            <option value="zh-TW">繁体中文</option>
-            <option value="en">English</option>
-            <option value="ja">日本語</option>
-            <option value="ko">한국어</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-        </select>
-    </header>
-    <main id="content">
-        <!-- 内容由 JavaScript 注入 -->
-    </main>
 
-    <script>
-        const privacyPolicy = {
-            "zh": {
-                "overview": "欢迎使用速去印（VideoSnap Hub）。本隐私政策说明了我们如何收集、使用、存储和共享您的个人信息。我们致力于保护您的隐私，同时提供个性化体验和广告服务。使用本应用即表示您同意本隐私政策的所有条款。",
-                "collection": "我们可能收集您的设备信息、使用数据、下载历史、账号信息及位置信息，以提供服务和优化用户体验。收集方式包括您主动提供和自动收集。",
-                "storage": "您的信息会被安全存储在服务器上，并采取行业标准的加密和访问控制措施。我们定期审查安全策略以确保数据安全。",
-                "sharing": "除非法律要求或获得您的明确同意，我们不会将您的个人信息出售或转让给第三方。可能共享信息用于服务支持、广告投放或分析目的。",
-                "cookies": "我们使用Cookie及类似追踪技术，以分析使用情况、提供个性化广告和提升用户体验。您可通过设备设置管理Cookie权限。",
-                "children": "速去印不针对13岁以下儿童收集个人信息。对于未成年用户，我们会在收集任何信息前征得监护人同意，并保护其隐私。",
-                "us_states": "针对美国各州用户，我们遵守加州消费者隐私法（CCPA）、佛罗里达隐私规定等，用户可访问、删除或限制对其个人信息的使用。",
-                "permissions": "应用可能请求存储、网络、通知、媒体访问等权限，用于下载短视频、推送通知及功能正常运行。您可随时修改授权。",
-                "scope": "本隐私政策适用于速去印及其相关服务，包括所有平台版本的应用程序及官方网站。",
-                "revisions": "本隐私政策可能随时更新，更新后我们会在应用内或官方网站提示用户，建议定期查看。",
-                "disclaimer": "本应用提供下载与解析服务，但不对内容版权负责。使用者需确保下载内容合法。广告可能由第三方提供，我们不承担其内容责任。",
-                "ads": "我们可能展示个性化广告，基于您的兴趣和使用行为投放。您可通过设备设置限制广告个性化。",
-                "consent": "您可以随时更改对个人信息收集、使用和共享的授权同意，包括广告和通知。",
-                "contact": "如有隐私问题，请通过邮箱 addregis@gmail.com 联系我们。"
-            },
-            "zh-TW": {
-                "overview": "歡迎使用速去印（VideoSnap Hub）。本隱私政策說明我們如何收集、使用、儲存和分享您的個人信息。我們致力於保護您的隱私，同時提供個性化體驗和廣告服務。使用本應用即表示您同意本隱私政策的所有條款。",
-                "collection": "我們可能收集您的設備信息、使用數據、下載歷史、帳號信息及位置信息，以提供服務和優化用戶體驗。收集方式包括您主動提供和自動收集。",
-                "storage": "您的信息會被安全儲存在伺服器上，並採取行業標準的加密和訪問控制措施。我們定期審查安全策略以確保數據安全。",
-                "sharing": "除非法律要求或獲得您的明確同意，我們不會將您的個人信息出售或轉讓給第三方。可能共享信息用於服務支援、廣告投放或分析目的。",
-                "cookies": "我們使用Cookie及類似追蹤技術，以分析使用情況、提供個性化廣告和提升用戶體驗。您可透過設備設定管理Cookie權限。",
-                "children": "速去印不針對13歲以下兒童收集個人信息。對於未成年用戶，我們會在收集任何信息前徵得監護人同意，並保護其隱私。",
-                "us_states": "針對美國各州用戶，我們遵守加州消費者隱私法（CCPA）、佛羅里達隱私規定等，用戶可訪問、刪除或限制對其個人信息的使用。",
-                "permissions": "應用可能請求存儲、網絡、通知、媒體訪問等權限，用於下載短視頻、推送通知及功能正常運行。您可隨時修改授權。",
-                "scope": "本隱私政策適用於速去印及其相關服務，包括所有平台版本的應用程式及官方網站。",
-                "revisions": "本隱私政策可能隨時更新，更新後我們會在應用內或官方網站提示用戶，建議定期查看。",
-                "disclaimer": "本應用提供下載與解析服務，但不對內容版權負責。使用者需確保下載內容合法。廣告可能由第三方提供，我們不承擔其內容責任。",
-                "ads": "我們可能展示個性化廣告，基於您的興趣和使用行為投放。您可透過設備設定限制廣告個性化。",
-                "consent": "您可以隨時更改對個人信息收集、使用和共享的授權同意，包括廣告和通知。",
-                "contact": "如有隱私問題，請透過郵箱 addregis@gmail.com 聯繫我們。"
-            },
-            "en": {
-                "overview": "Welcome to VideoSnap Hub. This Privacy Policy explains how we collect, use, store, and share your personal information. We are committed to protecting your privacy while providing personalized experiences and advertising. By using this app, you agree to all terms of this Privacy Policy.",
-                "collection": "We may collect device information, usage data, download history, account information, and location data to provide services and improve user experience. Collection may be done automatically or via information you provide.",
-                "storage": "Your information is securely stored on servers with industry-standard encryption and access controls. We regularly review security policies to ensure data safety.",
-                "sharing": "Except as required by law or with your explicit consent, we do not sell or transfer your personal information to third parties. Shared information may be used for service support, advertising, or analytics purposes.",
-                "cookies": "We use cookies and similar tracking technologies to analyze usage, provide personalized ads, and improve user experience. You can manage cookie permissions via your device settings.",
-                "children": "VideoSnap Hub does not collect personal information from children under 13. For minors, we obtain parental consent before collecting information and protect their privacy.",
-                "us_states": "For users in the United States, we comply with state privacy laws including CCPA and Florida Privacy regulations. Users may access, delete, or restrict the use of their personal information.",
-                "permissions": "The app may request storage, network, notifications, and media access permissions for video downloads, notifications, and proper functionality. You may modify these authorizations at any time.",
-                "scope": "This Privacy Policy applies to VideoSnap Hub and its related services, including all platform versions and official websites.",
-                "revisions": "This Privacy Policy may be updated at any time. Updates will be indicated within the app or on the official website. Users are encouraged to review periodically.",
-                "disclaimer": "This app provides download and parsing services but is not responsible for content copyright. Users must ensure downloaded content is legal. Ads may be provided by third parties; we do not assume responsibility for third-party content.",
-                "ads": "We may display personalized ads based on your interests and usage behavior. You can limit personalized ads via your device settings.",
-                "consent": "You may change your consent regarding collection, use, and sharing of personal information, including ads and notifications, at any time.",
-                "contact": "For privacy inquiries, please contact us at addregis@gmail.com."
-            },
-            "ja": {
-                "overview": "VideoSnap Hubへようこそ。本プライバシーポリシーでは、個人情報の収集、使用、保存、共有方法について説明します。私たちは、ユーザーのプライバシーを保護しながら、パーソナライズされた体験と広告を提供します。本アプリを使用することで、本プライバシーポリシーの全ての条項に同意したものとみなされます。",
-                "collection": "デバイス情報、使用データ、ダウンロード履歴、アカウント情報、位置情報を収集し、サービス提供およびユーザー体験の向上に利用します。収集は自動的またはユーザーから提供された情報により行われます。",
-                "storage": "情報は、業界標準の暗号化およびアクセス制御を使用してサーバー上に安全に保存されます。データの安全性を確保するため、定期的にセキュリティポリシーを確認します。",
-                "sharing": "法律で要求される場合やユーザーの明示的な同意がある場合を除き、個人情報を第三者に販売または譲渡することはありません。共有情報はサービスサポート、広告配信、分析目的に使用される場合があります。",
-                "cookies": "Cookieおよび類似の追跡技術を使用して、使用状況の分析、パーソナライズ広告の提供、ユーザー体験の向上を行います。Cookieの設定はデバイス設定で管理可能です。",
-                "children": "VideoSnap Hubは13歳未満の子どもから個人情報を収集しません。未成年ユーザーの場合、情報収集前に保護者の同意を取得し、プライバシーを保護します。",
-                "us_states": "米国のユーザーに対しては、CCPAやフロリダ州プライバシー規制などの州法を遵守します。ユーザーは個人情報へのアクセス、削除、利用制限を要求できます。",
-                "permissions": "アプリは、動画ダウンロード、通知、正常な機能動作のために、ストレージ、ネットワーク、通知、メディアアクセスなどの権限を要求する場合があります。権限はいつでも変更可能です。",
-                "scope": "本プライバシーポリシーは、VideoSnap Hubおよび関連サービス、すべてのプラットフォーム版アプリおよび公式ウェブサイトに適用されます。",
-                "revisions": "本プライバシーポリシーは随時更新される場合があります。更新後はアプリ内または公式サイトで通知します。定期的に確認することをお勧めします。",
-                "disclaimer": "本アプリはダウンロードおよび解析サービスを提供しますが、コンテンツの著作権については責任を負いません。ユーザーはダウンロードするコンテンツの合法性を確認してください。広告は第三者によって提供される場合があり、その内容について責任を負いません。",
-                "ads": "興味・利用行動に基づいてパーソナライズ広告を表示する場合があります。パーソナライズ広告はデバイス設定で制限可能です。",
-                "consent": "個人情報の収集、利用、共有に関する同意はいつでも変更可能です。",
-                "contact": "プライバシーに関するお問い合わせは addregis@gmail.com までご連絡ください。"
-            },
-            "ko": {
-                "overview": "VideoSnap Hub에 오신 것을 환영합니다. 본 개인정보처리방침은 사용자의 개인정보를 수집, 이용, 저장 및 공유하는 방법을 설명합니다. 저희는 사용자의 개인정보를 보호하면서 개인화된 경험과 광고를 제공합니다. 본 앱을 사용함으로써 본 개인정보처리방침의 모든 조항에 동의하게 됩니다.",
-                "collection": "서비스 제공 및 사용자 경험 향상을 위해 기기 정보, 사용 데이터, 다운로드 기록, 계정 정보 및 위치 데이터를 수집할 수 있습니다. 수집은 자동 또는 사용자가 제공한 정보를 통해 이루어집니다.",
-                "storage": "정보는 업계 표준 암호화 및 접근 제어를 통해 서버에 안전하게 저장됩니다. 데이터 안전성을 위해 보안 정책을 정기적으로 검토합니다.",
-                "sharing": "법률 요구 또는 명시적 동의가 없는 한, 사용자의 개인정보를 제3자에게 판매하거나 이전하지 않습니다. 공유 정보는 서비스 지원, 광고 또는 분석 목적으로 사용될 수 있습니다.",
-                "cookies": "쿠키 및 유사 추적 기술을 사용하여 사용 현황을 분석하고 개인화 광고를 제공하며 사용자 경험을 향상합니다. 쿠키 설정은 기기 설정을 통해 관리 가능합니다.",
-                "children": "VideoSnap Hub는 13세 미만 아동으로부터 개인정보를 수집하지 않습니다. 미성년자의 경우, 정보 수집 전에 보호자의 동의를 얻고 개인정보를 보호합니다.",
-                "us_states": "미국 내 사용자의 경우 CCPA 및 플로리다 주 개인정보 규정을 준수하며, 사용자는 개인 정보에 대한 접근, 삭제 또는 사용 제한을 요청할 수 있습니다.",
-                "permissions": "앱은 동영상 다운로드, 알림 및 정상적인 기능 수행을 위해 저장소, 네트워크, 알림, 미디어 접근 권한을 요청할 수 있습니다. 권한은 언제든지 수정 가능합니다.",
-                "scope": "본 개인정보처리방침은 VideoSnap Hub 및 관련 서비스, 모든 플랫폼 버전 앱 및 공식 웹사이트에 적용됩니다.",
-                "revisions": "본 개인정보처리방침은 언제든지 업데이트될 수 있으며, 업데이트 시 앱 내 또는 공식 웹사이트에서 안내합니다. 정기적으로 확인하시기 바랍니다.",
-                "disclaimer": "본 앱은 다운로드 및 파싱 서비스를 제공하지만, 콘텐츠 저작권에 대한 책임은 지지 않습니다. 사용자는 다운로드하는 콘텐츠가 합법적인지 확인해야 합니다. 광고는 제3자가 제공할 수 있으며, 내용에 대해 책임을 지지 않습니다.",
-                "ads": "사용자 관심사 및 사용 행동을 기반으로 개인화 광고를 표시할 수 있습니다. 개인화 광고는 기기 설정에서 제한 가능합니다.",
-                "consent": "개인정보 수집, 이용, 공유에 대한 동의는 언제든지 변경할 수 있습니다.",
-                "contact": "개인정보 관련 문의는 addregis@gmail.com으로 연락해 주세요."
-            },
-            "fr": {
-                "overview": "Bienvenue sur VideoSnap Hub. Cette politique de confidentialité explique comment nous collectons, utilisons, stockons et partageons vos informations personnelles. Nous nous engageons à protéger votre vie privée tout en fournissant des expériences personnalisées et de la publicité. En utilisant cette application, vous acceptez tous les termes de cette politique de confidentialité.",
-                "collection": "Nous pouvons collecter des informations sur l'appareil, les données d'utilisation, l'historique des téléchargements, les informations de compte et les données de localisation pour fournir des services et améliorer l'expérience utilisateur. La collecte peut se faire automatiquement ou via les informations fournies par l'utilisateur.",
-                "storage": "Vos informations sont stockées en toute sécurité sur des serveurs avec un chiffrement et des contrôles d'accès conformes aux normes de l'industrie. Nous examinons régulièrement nos politiques de sécurité pour garantir la protection des données.",
-                "sharing": "Sauf si la loi l'exige ou avec votre consentement explicite, nous ne vendons ni ne transférons vos informations personnelles à des tiers. Les informations partagées peuvent être utilisées pour le support, la publicité ou l'analyse.",
-                "cookies": "Nous utilisons des cookies et des technologies similaires pour analyser l'utilisation, fournir des publicités personnalisées et améliorer l'expérience utilisateur. Vous pouvez gérer les cookies via les paramètres de votre appareil.",
-                "children": "VideoSnap Hub ne collecte pas d'informations personnelles auprès d'enfants de moins de 13 ans. Pour les mineurs, nous obtenons le consentement parental avant de collecter des informations et protégeons leur vie privée.",
-                "us_states": "Pour les utilisateurs américains, nous respectons les lois sur la confidentialité des états, y compris le CCPA et la réglementation sur la vie privée en Floride. Les utilisateurs peuvent accéder
-, supprimer ou restreindre l'utilisation de leurs informations personnelles.",
-"permissions": "L'application peut demander des autorisations de stockage, réseau, notifications et accès aux médias pour le téléchargement de vidéos, les notifications et le bon fonctionnement. Vous pouvez modifier ces autorisations à tout moment.",
-"scope": "Cette politique de confidentialité s'applique à VideoSnap Hub et ses services associés, y compris toutes les versions sur toutes les plateformes et le site officiel.",
-"revisions": "Cette politique de confidentialité peut être mise à jour à tout moment. Les mises à jour seront indiquées dans l'application ou sur le site officiel. Les utilisateurs sont encouragés à vérifier régulièrement.",
-"disclaimer": "Cette application fournit des services de téléchargement et d'analyse, mais n'est pas responsable des droits d'auteur du contenu. Les utilisateurs doivent s'assurer que le contenu téléchargé est légal. Les publicités peuvent être fournies par des tiers; nous ne sommes pas responsables de leur contenu.",
-"ads": "Nous pouvons afficher des publicités personnalisées basées sur vos intérêts et comportements. Vous pouvez limiter les publicités personnalisées via les paramètres de votre appareil.",
-"consent": "Vous pouvez modifier à tout moment votre consentement concernant la collecte, l'utilisation et le partage de vos informations personnelles, y compris les publicités et notifications.",
-"contact": "Pour toute question relative à la confidentialité, veuillez nous contacter à addregis@gmail.com
-."
-},
-"de": {
-"overview": "Willkommen bei VideoSnap Hub. Diese Datenschutzrichtlinie erklärt, wie wir Ihre personenbezogenen Daten erfassen, verwenden, speichern und weitergeben. Wir verpflichten uns, Ihre Privatsphäre zu schützen und gleichzeitig personalisierte Erlebnisse und Werbung bereitzustellen. Durch die Nutzung dieser App stimmen Sie allen Bestimmungen dieser Datenschutzrichtlinie zu.",
-"collection": "Wir können Geräteinformationen, Nutzungsdaten, Downloadverlauf, Kontoinformationen und Standortdaten sammeln, um Dienste bereitzustellen und die Benutzererfahrung zu verbessern. Die Erfassung erfolgt automatisch oder durch von Ihnen bereitgestellte Informationen.",
-"storage": "Ihre Informationen werden sicher auf Servern gespeichert, mit branchenüblicher Verschlüsselung und Zugriffskontrollen. Wir überprüfen regelmäßig unsere Sicherheitsrichtlinien, um die Datensicherheit zu gewährleisten.",
-"sharing": "Sofern gesetzlich nicht vorgeschrieben oder mit Ihrer ausdrücklichen Zustimmung, verkaufen oder übertragen wir Ihre personenbezogenen Daten nicht an Dritte. Geteilte Informationen können für Service-Support, Werbung oder Analysezwecke verwendet werden.",
-"cookies": "Wir verwenden Cookies und ähnliche Tracking-Technologien, um die Nutzung zu analysieren, personalisierte Werbung bereitzustellen und die Benutzererfahrung zu verbessern. Sie können Cookies über Ihre Geräteeinstellungen verwalten.",
-"children": "VideoSnap Hub sammelt keine personenbezogenen Daten von Kindern unter 13 Jahren. Für Minderjährige holen wir die Zustimmung der Eltern ein, bevor Informationen gesammelt werden, und schützen deren Privatsphäre.",
-"us_states": "Für Benutzer in den USA halten wir uns an staatliche Datenschutzgesetze, einschließlich CCPA und Florida Privacy Regulations. Benutzer können auf ihre personenbezogenen Daten zugreifen, sie löschen oder deren Nutzung einschränken.",
-"permissions": "Die App kann Berechtigungen für Speicher, Netzwerk, Benachrichtigungen und Medienzugriff anfordern, um Video-Downloads, Benachrichtigungen und ordnungsgemäße Funktionen zu ermöglichen. Sie können diese Berechtigungen jederzeit ändern.",
-"scope": "Diese Datenschutzrichtlinie gilt für VideoSnap Hub und die zugehörigen Dienste, einschließlich aller Plattformversionen und offiziellen Websites.",
-"revisions": "Diese Datenschutzrichtlinie kann jederzeit aktualisiert werden. Aktualisierungen werden in der App oder auf der offiziellen Website angezeigt. Benutzer werden empfohlen, regelmäßig zu überprüfen.",
-"disclaimer": "Diese App bietet Download- und Analysefunktionen, übernimmt jedoch keine Verantwortung für Urheberrechte der Inhalte. Benutzer müssen sicherstellen, dass heruntergeladene Inhalte legal sind. Anzeigen können von Dritten bereitgestellt werden; wir übernehmen keine Verantwortung für deren Inhalte.",
-"ads": "Wir können personalisierte Anzeigen basierend auf Ihren Interessen und Ihrem Nutzungsverhalten anzeigen. Sie können personalisierte Anzeigen über Ihre Geräteeinstellungen einschränken.",
-"consent": "Sie können Ihre Einwilligung zur Sammlung, Nutzung und Weitergabe personenbezogener Daten jederzeit ändern, einschließlich Anzeigen und Benachrichtigungen.",
-"contact": "Bei Datenschutzfragen kontaktieren Sie uns bitte unter addregis@gmail.com
-."
-}
-};
-          function renderLanguage(lang) {
-        const data = privacyPolicy[lang];
-        document.getElementById('content').innerHTML = `
-            <div class="section"><h2>概述 / Overview</h2><p>${data.overview}</p></div>
-            <div class="section"><h2>收集和使用个人信息 / Collection and Use of Personal Information</h2><p>${data.collection}</p></div>
-            <div class="section"><h2>存储与保护 / Storage and Protection</h2><p>${data.storage}</p></div>
-            <div class="section"><h2>共享、公开、转让 / Sharing and Disclosure</h2><p>${data.sharing}</p></div>
-            <div class="section"><h2>Cookies及追踪技术 / Cookies and Tracking</h2><p>${data.cookies}</p></div>
-            <div class="section"><h2>儿童隐私 / Children Privacy</h2><p>${data.children}</p></div>
-            <div class="section"><h2>美国各州隐私权 / US States Privacy Rights</h2><p>${data.us_states}</p></div>
-            <div class="section"><h2>请求权限说明 / Permissions</h2><p>${data.permissions}</p></div>
-            <div class="section"><h2>适用范围 / Scope</h2><p>${data.scope}</p></div>
-            <div class="section"><h2>隐私政策的修订 / Revisions</h2><p>${data.revisions}</p></div>
-            <div class="section"><h2>免责声明 / Disclaimer</h2><p>${data.disclaimer}</p></div>
-            <div class="section"><h2>广告说明 / Advertising</h2><p>${data.ads}</p></div>
-            <div class="section"><h2>更改授权同意 / Consent</h2><p>${data.consent}</p></div>
-            <div class="section"><h2>联系我们 / Contact</h2><p>${data.contact}</p></div>
-        `;
+```
+<h1>速去印 / VideoSnap Hub 隐私政策</h1>
+<label for="language">选择语言 / Select Language:</label>
+<select id="language">
+    <option value="zh">简体中文</option>
+    <option value="zh-tw">繁体中文</option>
+    <option value="en">English</option>
+    <option value="ja">日本語</option>
+    <option value="de">Deutsch</option>
+    <option value="ko">한국어</option>
+    <option value="fr">Français</option>
+</select>
+
+<div class="section" id="policy">
+    <!-- 简体中文内容 -->
+    <div class="lang" data-lang="zh">
+        <h2>概述</h2>
+        <p>本隐私政策描述了我们如何收集、使用、存储和分享您的个人信息，以便您能够更好地了解我们对您的数据处理方式。速去印 / VideoSnap Hub 致力于保护用户的隐私和安全，确保信息透明、可控，并遵循相关法律法规。</p>
+
+        <h2>个人信息的收集与使用</h2>
+        <p>我们可能收集您的设备信息、使用数据、下载记录和您主动提供的信息（如邮箱等）。这些信息用于提供应用服务、优化用户体验、分析使用模式以及推送个性化广告。</p>
+
+        <h2>个人信息的存储与保护</h2>
+        <p>您的信息将存储在安全的服务器上，并采取加密、访问权限控制等措施保护数据安全。我们会定期更新安全策略，防止未经授权访问、泄露、篡改或破坏信息。</p>
+
+        <h2>个人信息的共享、公开与披露</h2>
+        <p>我们不会将您的个人信息出售给第三方。仅在法律要求、保护用户和公众利益、或获得明确同意的情况下，可能共享部分信息给合作伙伴或服务提供商。</p>
+
+        <h2>Cookie与追踪技术</h2>
+        <p>我们使用 Cookie 和类似追踪技术，以优化功能、分析访问、个性化广告和提升应用体验。您可以通过设备设置管理 Cookie 权限。</p>
+
+        <h2>儿童隐私及未成年保护</h2>
+        <p>我们不会故意收集13岁以下儿童的个人信息。若发现无意中收集了未成年人的数据，将立即删除。家长或监护人可随时联系管理请求删除数据。</p>
+
+        <h2>美国各州隐私权</h2>
+        <p>根据加州消费者隐私法（CCPA）及其他州法律，用户有权请求访问、更正、删除个人信息，以及选择退出信息销售。我们尊重并提供相关操作渠道。</p>
+
+        <h2>请求权限说明</h2>
+        <p>应用可能请求访问存储、相册、网络状态、通知和其他功能权限，以提供下载、播放和广告服务。用户可在设备设置中管理权限。</p>
+
+        <h2>适用范围</h2>
+        <p>本政策适用于速去印 / VideoSnap Hub 移动应用及其关联服务，不适用于第三方网站或应用。</p>
+
+        <h2>隐私政策的修订与通知</h2>
+        <p>我们可能更新隐私政策以符合法律法规或业务调整。更新后将在应用内提示或通过邮件通知用户。</p>
+
+        <h2>用户协议与免责声明</h2>
+        <p>使用本应用即表示同意相关条款和隐私政策。应用对下载内容及第三方服务不承担责任，用户需自行遵守法律法规。</p>
+
+        <h2>个性化广告</h2>
+        <p>我们可能基于用户偏好和使用行为展示广告。您可以在应用或系统设置中管理广告个性化选项。</p>
+
+        <h2>改变授权同意范围</h2>
+        <p>用户可随时在应用设置中更改对数据收集、使用和分享的授权同意范围。</p>
+
+        <h2>联系我们</h2>
+        <p>如有隐私问题，请通过邮箱 <a href="mailto:addregis@gmail.com">addregis@gmail.com</a> 联系我们。</p>
+    </div>
+    <!-- 其他语言翻译可在这里添加，格式同上，每个语言一个 div，data-lang 对应上面 select 的值 -->
+</div>
+
+<script>
+    const select = document.getElementById('language');
+    const sections = document.querySelectorAll('#policy .lang');
+
+    function showLanguage(lang) {
+        sections.forEach(section => {
+            if (section.dataset.lang === lang) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
     }
 
-    document.getElementById('languageSwitcher').addEventListener('change', function(){
-        renderLanguage(this.value);
-    });
-
-    // 默认加载中文
-    renderLanguage('zh');
+    select.addEventListener('change', e => showLanguage(e.target.value));
+    showLanguage('zh'); // 默认显示简体中文
 </script>
+```
+
+</body>
+</html>
