@@ -1,98 +1,173 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>速去印 / VideoSnap Hub 隐私政策</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
-        h1, h2, h3 { color: #333; }
-        select { margin-bottom: 20px; padding: 5px; }
-        .section { margin-bottom: 30px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私政策 - 速去印 / VideoSnap Hub</title>
+<style>
+body {font-family: Arial, sans-serif; line-height: 1.6; margin:0; padding:0; background:#f5f5f5; color:#333;}
+header {background:#007BFF; color:#fff; padding:20px; text-align:center;}
+main {max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1,h2,h3 {color:#007BFF;}
+nav {text-align:center; margin-bottom:20px;}
+nav button {margin:0 5px; padding:8px 15px; border:none; border-radius:5px; background:#007BFF; color:white; cursor:pointer;}
+nav button.active {background:#0056b3;}
+section {display:none;}
+section.active {display:block;}
+@media(max-width:768px){main{padding:15px;} nav button{padding:6px 10px;}}
+</style>
 </head>
 <body>
 
-```
-<h1>速去印 / VideoSnap Hub 隐私政策</h1>
-<label for="language">选择语言 / Select Language:</label>
-<select id="language">
-    <option value="zh">简体中文</option>
-    <option value="zh-tw">繁体中文</option>
-    <option value="en">English</option>
-    <option value="ja">日本語</option>
-    <option value="de">Deutsch</option>
-    <option value="ko">한국어</option>
-    <option value="fr">Français</option>
-</select>
+<header>
+<h1>隐私政策 - 速去印 / VideoSnap Hub</h1>
+</header>
 
-<div class="section" id="policy">
-    <!-- 简体中文内容 -->
-    <div class="lang" data-lang="zh">
-        <h2>概述</h2>
-        <p>本隐私政策描述了我们如何收集、使用、存储和分享您的个人信息，以便您能够更好地了解我们对您的数据处理方式。速去印 / VideoSnap Hub 致力于保护用户的隐私和安全，确保信息透明、可控，并遵循相关法律法规。</p>
+<nav>
+<button onclick="switchLang('zh')" class="active">简体中文</button>
+<button onclick="switchLang('en')">English</button>
+<button onclick="switchLang('ja')">日本語</button>
+<button onclick="switchLang('de')">Deutsch</button>
+<button onclick="switchLang('ko')">한국어</button>
+<button onclick="switchLang('zh-tw')">繁體中文</button>
+<button onclick="switchLang('fr')">Français</button>
+</nav>
 
-        <h2>个人信息的收集与使用</h2>
-        <p>我们可能收集您的设备信息、使用数据、下载记录和您主动提供的信息（如邮箱等）。这些信息用于提供应用服务、优化用户体验、分析使用模式以及推送个性化广告。</p>
+<main>
+<!-- 简体中文 -->
+<section id="zh" class="active">
+<h2>概述</h2>
+<p>速去印（VideoSnap Hub，以下简称“本应用”）由 Nicevdo 公司开发和运营。我们高度重视并严格保护所有用户的个人隐私。在您使用本应用时，我们会依据本隐私政策收集、使用、存储和披露个人信息，以便为您提供精准、安全、优质的服务。本政策旨在让用户全面了解本应用如何收集、处理及保护信息，以及用户在信息保护方面的权利与选择。我们的目标是确保所有数据处理活动符合法律法规和最佳实践标准。</p>
 
-        <h2>个人信息的存储与保护</h2>
-        <p>您的信息将存储在安全的服务器上，并采取加密、访问权限控制等措施保护数据安全。我们会定期更新安全策略，防止未经授权访问、泄露、篡改或破坏信息。</p>
+<h2>收集与使用个人信息</h2>
+<p>在您自愿使用本应用服务前提下，我们会收集必要的数据，包括注册信息、设备信息、位置信息、浏览历史和使用日志。收集信息用于提供服务、改善体验、推荐个性化内容、广告优化，以及法律法规允许的其他用途。未获得用户授权，本应用不会向无关第三方出售、出租或共享个人信息。所有数据处理均遵守相关隐私法规和行业标准，以保护用户信息安全。</p>
 
-        <h2>个人信息的共享、公开与披露</h2>
-        <p>我们不会将您的个人信息出售给第三方。仅在法律要求、保护用户和公众利益、或获得明确同意的情况下，可能共享部分信息给合作伙伴或服务提供商。</p>
+<h2>存储与保护个人信息</h2>
+<p>所收集的个人信息存储于安全服务器上，采取技术和管理措施确保数据安全，包括加密传输、访问控制和安全审计。信息可能跨境传输以支持服务，但会符合法律法规要求，采取措施防止未经授权访问、丢失或篡改。我们定期评估数据安全措施，确保信息保护水平符合行业最佳实践。</p>
 
-        <h2>Cookie与追踪技术</h2>
-        <p>我们使用 Cookie 和类似追踪技术，以优化功能、分析访问、个性化广告和提升应用体验。您可以通过设备设置管理 Cookie 权限。</p>
+<h2>共享、公开、转让及披露信息</h2>
+<p>在用户同意、提供服务、遵守法律或知识产权争议处理等情况下，本应用可能披露部分个人信息。第三方访问后将禁止进一步使用或披露数据。我们不会向无关方出售或出租个人信息，任何违法使用个人信息的行为将被立即制止。披露行为均遵循严格法律、合同和平台政策要求。</p>
 
-        <h2>儿童隐私及未成年保护</h2>
-        <p>我们不会故意收集13岁以下儿童的个人信息。若发现无意中收集了未成年人的数据，将立即删除。家长或监护人可随时联系管理请求删除数据。</p>
+<h2>Cookie及其他追踪技术</h2>
+<p>本应用及服务可能使用 Cookie、Web Beacon、移动端标识符等技术收集设备与使用信息，用于服务优化、数据分析及个性化广告推送。用户可在设备设置中管理或关闭 Cookie，但可能影响部分功能体验。所有跟踪技术均遵守相关隐私法规和行业标准。</p>
 
-        <h2>美国各州隐私权</h2>
-        <p>根据加州消费者隐私法（CCPA）及其他州法律，用户有权请求访问、更正、删除个人信息，以及选择退出信息销售。我们尊重并提供相关操作渠道。</p>
+<h2>儿童隐私保护</h2>
+<p>本应用不面向 13 岁以下儿童。如果发现收集到儿童个人信息，将及时删除。我们鼓励家长监督未成年人使用行为，并遵守适用儿童保护法规（如 COPPA）。我们不会在未经父母同意下收集儿童敏感信息，确保未成年人安全和隐私得到保护。</p>
 
-        <h2>请求权限说明</h2>
-        <p>应用可能请求访问存储、相册、网络状态、通知和其他功能权限，以提供下载、播放和广告服务。用户可在设备设置中管理权限。</p>
+<h2>美国各州隐私权</h2>
+<p>依据加州消费者隐私法（CCPA）及其他州法律，用户有权知晓我们收集的信息类型、来源、用途及分享对象，并可要求访问、删除或选择拒绝出售信息。我们提供渠道让用户行使相关权利，确保合规处理美国各州隐私权要求。</p>
 
-        <h2>适用范围</h2>
-        <p>本政策适用于速去印 / VideoSnap Hub 移动应用及其关联服务，不适用于第三方网站或应用。</p>
+<h2>请求权限说明</h2>
+<p>本应用在使用过程中可能请求摄像头、存储、位置信息等权限，仅用于实现核心功能。用户可选择授权或拒绝，拒绝授权可能会影响应用部分功能。</p>
 
-        <h2>隐私政策的修订与通知</h2>
-        <p>我们可能更新隐私政策以符合法律法规或业务调整。更新后将在应用内提示或通过邮件通知用户。</p>
+<h2>第三方 SDK 服务</h2>
+<p>本应用集成第三方 SDK（如 Google AdMob、友盟+、微信支付、支付宝等）用于广告投放、数据分析、支付及用户反馈。这些 SDK 可能收集设备信息、网络信息、位置信息及使用日志。请参阅各 SDK 官方隐私政策获取详细信息。</p>
 
-        <h2>用户协议与免责声明</h2>
-        <p>使用本应用即表示同意相关条款和隐私政策。应用对下载内容及第三方服务不承担责任，用户需自行遵守法律法规。</p>
+<h2>广告个性化说明</h2>
+<p>本应用使用 Google AdMob 推送个性化广告，可能基于兴趣、地理位置及使用行为定制广告内容。用户可在 Google 广告设置或设备设置中选择退出个性化广告，以保护个人隐私。</p>
 
-        <h2>个性化广告</h2>
-        <p>我们可能基于用户偏好和使用行为展示广告。您可以在应用或系统设置中管理广告个性化选项。</p>
+<h2>适用范围</h2>
+<p>本隐私政策适用于本应用及相关服务、网站和平台。使用本应用即视为同意隐私政策条款，包括所有条款、条件及更新。</p>
 
-        <h2>改变授权同意范围</h2>
-        <p>用户可随时在应用设置中更改对数据收集、使用和分享的授权同意范围。</p>
+<h2>隐私政策修订与通知</h2>
+<p>隐私政策可能随服务更新、法律要求或业务需求修订。更新后立即生效，重大修改会通过应用内公告或邮箱通知用户。用户继续使用即表示同意更新后的政策。</p>
 
-        <h2>联系我们</h2>
-        <p>如有隐私问题，请通过邮箱 <a href="mailto:addregis@gmail.com">addregis@gmail.com</a> 联系我们。</p>
-    </div>
-    <!-- 其他语言翻译可在这里添加，格式同上，每个语言一个 div，data-lang 对应上面 select 的值 -->
-</div>
+<h2>用户协议及免责声明</h2>
+<p>本应用提供的服务力求稳定，但受网络、第三方及不可控因素影响，不保证服务不中断或满足所有需求。用户使用本应用需遵守相关使用条款和法律法规，本应用不对因不可抗力或用户操作不当造成的损失承担责任。</p>
 
-<script>
-    const select = document.getElementById('language');
-    const sections = document.querySelectorAll('#policy .lang');
+<h2>联系我们</h2>
+<p>如对本政策有任何疑问或建议，请通过邮箱 <a href="mailto:addregis@gmail.com">addregis@gmail.com</a> 联系我们，我们将在三个工作日内初步回复，并尽力在15个工作日内解决问题。</p>
+</section>
 
-    function showLanguage(lang) {
-        sections.forEach(section => {
-            if (section.dataset.lang === lang) {
-                section.style.display = 'block';
-            } else {
-                section.style.display = 'none';
-            }
-        });
-    }
+<!-- 英文 -->
+<section id="en">
+<h2>Overview</h2>
+<p>VideoSnap Hub (hereinafter referred to as “the App”) is developed and operated by Nicevdo. We highly value and strictly protect all users’ personal privacy. When you use the App, we collect, use, store, and disclose personal information in accordance with this Privacy Policy to provide accurate, secure, and high-quality services. This Privacy Policy aims to help users understand how the App collects, processes, and protects information, and the rights and choices they have regarding their personal information.</p>
 
-    select.addEventListener('change', e => showLanguage(e.target.value));
-    showLanguage('zh'); // 默认显示简体中文
-</script>
-```
+<h2>Collection and Use of Personal Information</h2>
+<p>With your voluntary consent, we collect essential information such as registration data, device details, location information, browsing history, and usage logs. This information is used to provide services, improve user experience, deliver personalized content, optimize ads, and for other lawful purposes. Personal data will not be sold, rented, or shared with unrelated third parties without consent. All data processing complies with applicable laws and industry best practices to ensure user information security.</p>
 
-</body>
-</html>
+<h2>Storage and Protection of Personal Information</h2>
+<p>Collected personal data is stored on secure servers, protected by technical and administrative measures including encryption, access control, and security audits. Data may be transferred across borders but will comply with legal requirements and measures are in place to prevent unauthorized access, loss, or tampering. Security measures are regularly assessed to maintain best practice standards.</p>
+
+<h2>Sharing and Disclosure of Information</h2>
+<p>Personal information may be disclosed under user consent, service provision needs, legal requirements, or intellectual property dispute resolution. Third parties are prohibited from further use or disclosure of this information. We do not sell or rent personal data to unrelated parties, and any violation will be immediately addressed. Disclosure complies with applicable laws, contracts, and platform policies.</p>
+
+<h2>Cookies and Tracking Technologies</h2>
+<p>The App may use cookies, web beacons, mobile identifiers, and other tracking technologies to collect device and usage information for service optimization, data analytics, and personalized advertising. Users may manage or disable cookies in device settings, which may affect functionality. All tracking complies with privacy regulations and industry standards.</p>
+
+<h2>Children’s Privacy</h2>
+<p>The App is not directed at children under 13. If children’s personal information is collected, it will be promptly deleted. Parents are encouraged to supervise minors’ use of the App, in accordance with applicable children’s protection laws, such as COPPA. We do not collect sensitive information from children without parental consent.</p>
+
+<h2>US State Privacy Rights</h2>
+<p>Under CCPA and other state privacy laws, users have the right to know the types, sources, purposes, and sharing of personal information collected. Users can request access, deletion, or opt-out of the sale of their information. We provide channels for users to exercise these rights to ensure compliance with US state privacy regulations.</p>
+
+<h2>Requested Permissions</h2>
+<p>The App may request permissions such as camera, storage, and location to provide core functionality. Users can grant or deny permissions. Denying permissions may affect certain features of the App.</p>
+
+<h2>Third-Party SDKs</h2>
+<p>The App integrates third-party SDKs including Google AdMob, Umeng+, WeChat Pay, Alipay, etc. These SDKs may collect device information, network info, location, and usage logs. Refer to each SDK’s privacy policy for detailed information.</p>
+
+<h2>Personalized Advertising</h2>
+<p>The App uses Google AdMob to provide personalized ads based on interests, location, and usage patterns. Users can opt out of personalized ads via Google Ads Settings or device settings.</p>
+
+<h2>Scope</h2>
+<p>This Privacy Policy applies to the App, its services, websites, and platforms. Using the App constitutes acceptance of all terms outlined in this policy.</p>
+
+<h2>Policy Updates and Notification</h2>
+<p>This policy may be updated due to service updates, legal requirements, or business needs. Updated versions take effect immediately. Major changes will be communicated via in-app notifications or email. Continued use indicates acceptance.</p>
+
+<h2>User Agreement and Disclaimer</h2>
+<p>The App strives to provide stable services but cannot guarantee uninterrupted service or fulfillment of all user expectations due to network, third-party, or uncontrollable factors. Users must comply with applicable terms and laws. The App is not responsible for losses caused by force majeure or user error.</p>
+
+<h2>Contact</h2>
+<p>For any questions or suggestions regarding this Privacy Policy, please contact us at <a href="mailto:addregis@gmail.com">addregis@gmail.com</a>. We aim to respond within three business days and resolve issues within 15 business days.</p>
+</section>
+
+<!-- 日语 -->
+<section id="ja">
+<h2>概要</h2>
+<p>VideoSnap Hub（以下「本アプリ」）はNicevdoによって開発・運営されています。本アプリはすべてのユーザーの個人情報の保護を最優先に考えています。本アプリを使用する際、個人情報は本プライバシーポリシーに従って収集・利用・保管・開示され、正確で安全かつ高品質なサービスを提供します。本ポリシーは、ユーザーが情報収集・処理・保護の方法、および個人情報に関する権利と選択肢を理解するためのものです。</p>
+
+<h2>個人情報の収集と利用</h2>
+<p>ユーザーの自発的な同意に基づき、登録情報、デバイス情報、位置情報、ブラウザ履歴、使用ログなどの必要な情報を収集します。収集情報はサービス提供、ユーザー体験の改善、パーソナライズされたコンテンツや広告配信の最適化、法律により認められたその他の目的に使用されます。ユーザーの同意なしに、個人情報を第三者に販売、貸与、共有することはありません。</p>
+
+<h2>個人情報の保存と保護</h2>
+<p>収集した個人情報は安全なサーバーに保存され、暗号化、アクセス制御、セキュリティ監査などの技術的・管理的措置により保護されます。情報はサービス提供のために国境を越えて転送される場合がありますが、法令に準拠し、不正アクセス、紛失、改ざんから保護します。定期的にセキュリティ対策を評価し、最適な保護を維持します。</p>
+
+<h2>情報の共有・公開・譲渡・開示</h2>
+<p>ユーザーの同意、サービス提供、法的義務、知的財産権の紛争解決等の場合に個人情報を開示することがあります。第三者は情報を不正に使用または開示することを禁じられています。違反行為は直ちに制止されます。すべての開示行為は法律、契約、プラットフォーム規則に従います。</p>
+
+<h2>Cookieおよび追跡技術</h2>
+<p>本アプリではCookie、Webビーコン、モバイル識別子などを使用してデバイスおよび使用情報を収集し、サービス改善、データ分析、個別化広告の提供に使用します。ユーザーはデバイス設定でCookieを管理または無効化できますが、一部機能に影響する可能性があります。</p>
+
+<h2>子供のプライバシー保護</h2>
+<p>本アプリは13歳未満の子供を対象としていません。子供の個人情報が収集された場合、速やかに削除します。保護者は未成年者の利用を監督し、COPPAなどの関連法規に従ってください。親の同意なしに子供の敏感情報を収集することはありません。</p>
+
+<h2>米国各州のプライバシー権</h2>
+<p>CCPAなどの州法により、ユーザーは収集される情報の種類、出所、用途、共有先を知る権利があります。ユーザーはアクセス、削除、販売拒否を要求できます。本アプリはユーザーがこれらの権利を行使できる手段を提供します。</p>
+
+<h2>要求される権限</h2>
+<p>本アプリはカメラ、ストレージ、位置情報などの権限を要求する場合があります。これは主要機能の提供のためであり、ユーザーは許可または拒否できます。拒否すると一部機能が制限される場合があります。</p>
+
+<h2>第三者SDKサービス</h2>
+<p>本アプリはGoogle AdMob、友盟+、WeChat Pay、AlipayなどのSDKを統合しています。これらのSDKはデバイス情報、ネットワーク情報、位置情報、使用ログを収集する場合があります。詳細は各SDKのプライバシーポリシーをご参照ください。</p>
+
+<h2>パーソナライズ広告</h2>
+<p>本アプリはGoogle AdMobを利用して、興味、位置、使用状況に基づいたパーソナライズ広告を提供します。ユーザーはGoogle広告設定やデバイス設定で広告パーソナライズをオプトアウトできます。</p>
+
+<h2>適用範囲</h2>
+<p>本ポリシーは本アプリおよび関連サービス、ウェブサイト、プラットフォームに適用されます。本アプリを使用することで、すべての条項に同意したものとみなされます。</p>
+
+<h2>ポリシー改訂と通知</h2>
+<p>本ポリシーはサービス更新、法律要件、ビジネスニーズに応じて改訂される場合があります。改訂後は即時効力を持ち、重大な変更はアプリ内通知やメールで告知されます。継続利用は改訂ポリシーへの同意を意味します。</p>
+
+<h2>ユーザー契約および免責事項</h2>
+<p>本アプリは安定したサービス提供を目指しますが、ネットワーク状況や第三者要因などにより中断や機能制限が発生する場合があります。ユーザーは関連利用規約と法令を遵守する必要があります。本アプリは不可抗力またはユーザーの操作ミスによる損失に責任を負いません。</p>
+
+<h2>お問い合わせ</h2>
+<p>本ポリシーに関する質問や要望は、メール <a href="mailto:addregis@gmail.com">addregis@gmail.com</a> までご連絡ください。通常3営業日以内に初回回答し、15営業日以内に解決に努めます。</p>
+</section>
+
+<!-- 德语 -->
+<section
