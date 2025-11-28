@@ -918,25 +918,35 @@ function switchLang(lang) {
                     : langBtn.textContent;
     langBtn.textContent = btnText;
 
-    // ===== 更新 header 标题 =====
-    const titleEl = document.getElementById('policy-title');
-    if(lang === 'zh') { titleEl.textContent = '速去印 - 隐私政策'; return; }
-    if(lang === 'zh-TW') { titleEl.textContent = '速去印 - 隱私權政策'; return; }
+   // ===== 更新 header 标题 =====
+const titleEl = document.getElementById('policy-title');
+if(lang === 'zh') { 
+    titleEl.textContent = '速去印 - 隐私政策'; 
+    document.title = titleEl.textContent; // 同步 title
+    return; 
+}
+if(lang === 'zh-TW') { 
+    titleEl.textContent = '速去印 - 隱私權政策'; 
+    document.title = titleEl.textContent; // 同步 title
+    return; 
+}
 
-    const appName = "VideoSnap Hub";
-    const policyText = {
-        "en": "Privacy Policy",
-        "fr": "Politique de Confidentialité",
-        "de": "Datenschutzrichtlinie",
-        "ar": "سياسة الخصوصية",
-        "hi-rIN": "गोपनीयता नीति",
-        "pt-rBR": "Política de Privacidade",
-        "tr-rTR": "Gizlilik Politikası",
-        "ur-rPK": "رازداری کی پالیسی",
-        "ja": "プライバシーポリシー",
-        "ko": "개인정보 처리방침"
-    };
-    titleEl.textContent = `${appName} - ${policyText[lang] || 'Privacy Policy'}`;
+const appName = "VideoSnap Hub";
+const policyText = {
+    "en": "Privacy Policy",
+    "fr": "Politique de Confidentialité",
+    "de": "Datenschutzrichtlinie",
+    "ar": "سياسة الخصوصية",
+    "hi-rIN": "गोपनीयता नीति",
+    "pt-rBR": "Política de Privacidade",
+    "tr-rTR": "Gizlilik Politikası",
+    "ur-rPK": "رازداری کی پالیسی",
+    "ja": "プライバシーポリシー",
+    "ko": "개인정보 처리방침"
+};
+titleEl.textContent = `${appName} - ${policyText[lang] || 'Privacy Policy'}`;
+document.title = titleEl.textContent; // 同步 title
+
 }
 
 // ===== 点击页面其他区域关闭下拉 =====
@@ -946,6 +956,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
