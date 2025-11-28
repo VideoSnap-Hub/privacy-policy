@@ -24,7 +24,7 @@ main {
     position: relative; 
     overflow: hidden; 
 }
-section { display:none; }
+section { display:none; position: relative; z-index:1; }
 section.active { display:block; }
 
 /* 水印容器 */
@@ -34,7 +34,7 @@ section.active { display:block; }
     width: 100%; height: 100%;
     pointer-events: none;
     user-select: none;
-    z-index: 0;
+    z-index:0;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -847,14 +847,39 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
+    // ===== 水印生成函数 =====
+    function generateWatermarks(section){
+        const container = section.querySelector('.watermark-container');
+        container.innerHTML='';
+        const paragraphCount = section.querySelectorAll('p').length;
+        const repeats = paragraphCount * 3; // 每段显示多个水印
+        for(let i=0;i<repeats;i++){
+            const span = document.createElement('span');
+            span.textContent = '速去印 © 2025';
+            container.appendChild(span);
+        }
+    }
+
+    // ===== 水印滚动效果 =====
+    function updateWatermarkScroll(){
+        document.querySelectorAll('section .watermark-container').forEach(c=>{
+            const offset = window.scrollY - c.parentElement.offsetTop;
+            c.style.transform = `translateY(${offset*0.2}px)`;
+        });
+    }
+    window.addEventListener('scroll', updateWatermarkScroll);
+    window.addEventListener('resize', ()=>{
+        document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
+        updateWatermarkScroll();
+    });
+
     // ===== 切换语言函数 =====
     window.switchLang = function(lang){
         document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
         const active = document.getElementById(lang);
         if(active) active.classList.add('active');
 
-        // 更新 LOGO下标题和页面title
-        const titleEl = document.getElementById('policy-title');
+        // LOGO下标题和页面title
         const titleMap = {
             en:'VideoSnap Hub - Privacy Policy',
             zh:'速去印 - 隐私政策',
@@ -865,42 +890,16 @@ document.addEventListener("DOMContentLoaded", function(){
             ko:'VideoSnap Hub - 개인정보 처리방침',
             ar:'VideoSnap Hub - سياسة الخصوصية'
         };
-        titleEl.textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
-        document.title = titleEl.textContent;
+        document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
+        document.title = document.getElementById('policy-title').textContent;
+
+        // 自动生成所有 section 水印
+        document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
+        updateWatermarkScroll();
 
         // 自动收起下拉
         langOptions.style.display='none';
     }
-    // ===== 水印生成函数 =====
-function generateWatermarks(section){
-    const container = section.querySelector('.watermark-container');
-    container.innerHTML='';
-    const paragraphCount = section.querySelectorAll('p').length;
-    const repeats = paragraphCount * 3; // 每段显示多个水印
-    for(let i=0;i<repeats;i++){
-        const span = document.createElement('span');
-        span.textContent = '速去印 © 2025';
-        container.appendChild(span);
-    }
-}
-
-// ===== 水印滚动效果 =====
-function updateWatermarkScroll(){
-    document.querySelectorAll('section .watermark-container').forEach(c=>{
-        const offset = window.scrollY - c.parentElement.offsetTop;
-        c.style.transform = `translateY(${offset*0.2}px)`;
-    });
-}
-
-window.addEventListener('scroll', updateWatermarkScroll);
-window.addEventListener('resize', ()=>{
-    document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
-});
-
- // 自动生成所有 section 水印
-    document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
-    updateWatermarkScroll();
-}
 
     // ===== 默认英文 =====
     switchLang('en');
