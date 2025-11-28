@@ -5,31 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VideoSnap Hub - Privacy Policy</title>
 <style>
+/* ===== 全局样式 ===== */
 body { font-family: Arial; margin:0; padding:0; background:#f5f5f5; color:#333; }
+
+/* ===== Header ===== */
 header { background:#007BFF; padding:40px 20px; text-align:center; }
 header .logo { width:100px; margin-bottom:10px; }
 header h1 { color:#fff; font-size:clamp(16px,4vw,24px); margin:0; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-main { max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); position:relative; overflow:hidden; }
-section { display:none; position:relative; }
+
+/* ===== Main内容 ===== */
+main { 
+    max-width:1000px; 
+    margin:20px auto; 
+    background:#fff; 
+    padding:30px; 
+    border-radius:8px; 
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    position: relative; 
+    overflow: hidden; 
+}
+section { display:none; }
 section.active { display:block; }
 
-/* ===== 水印 ===== */
+/* 水印容器 */
 .watermark-container {
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    pointer-events:none;
-    user-select:none;
-    z-index:0;
-    display:flex;
-    flex-wrap:wrap;
-    align-content:flex-start;
-    justify-content:center;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    overflow: hidden;
 }
 .watermark-container span {
-    font-size:clamp(20px,5vw,80px);
+    font-size: clamp(30px, 5vw, 80px);
     color: rgba(0,0,0,0.05);
-    margin:50px;
+    margin: 50px;
     transform: rotate(-30deg);
     white-space: nowrap;
 }
@@ -815,21 +830,48 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
 </main>
 
 <script>
-const langBtn = document.getElementById('langBtn');
-const langOptions = document.getElementById('langOptions');
+document.addEventListener("DOMContentLoaded", function(){
+    const langBtn = document.getElementById('langBtn');
+    const langOptions = document.getElementById('langOptions');
 
-// 下拉按钮显示/隐藏
-langBtn.addEventListener('click', e=>{
-    e.stopPropagation();
-    langOptions.style.display = langOptions.style.display==='block'?'none':'block';
-});
-window.addEventListener('click', e=>{
-    if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
+    // ===== 点击按钮显示/隐藏下拉 =====
+    langBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        langOptions.style.display = langOptions.style.display==='block'?'none':'block';
+    });
+
+    // ===== 点击页面其他区域收起下拉 =====
+    window.addEventListener('click', function(e){
+        if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
+            langOptions.style.display='none';
+        }
+    });
+
+    // ===== 切换语言函数 =====
+    window.switchLang = function(lang){
+        document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+        const active = document.getElementById(lang);
+        if(active) active.classList.add('active');
+
+        // 更新 LOGO下标题和页面title
+        const titleEl = document.getElementById('policy-title');
+        const titleMap = {
+            en:'VideoSnap Hub - Privacy Policy',
+            zh:'速去印 - 隐私政策',
+            'zh-TW':'速去印 - 隱私權政策',
+            fr:'VideoSnap Hub - Politique de Confidentialité',
+            de:'VideoSnap Hub - Datenschutzrichtlinie',
+            ja:'VideoSnap Hub - プライバシーポリシー',
+            ko:'VideoSnap Hub - 개인정보 처리방침',
+            ar:'VideoSnap Hub - سياسة الخصوصية'
+        };
+        titleEl.textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
+        document.title = titleEl.textContent;
+
+        // 自动收起下拉
         langOptions.style.display='none';
     }
-});
-
-// 水印生成函数
+    // ===== 水印生成函数 =====
 function generateWatermarks(section){
     const container = section.querySelector('.watermark-container');
     container.innerHTML='';
@@ -842,58 +884,31 @@ function generateWatermarks(section){
     }
 }
 
-// 水印滚动效果
+// ===== 水印滚动效果 =====
 function updateWatermarkScroll(){
-    document.querySelectorAll('section.active .watermark-container').forEach(c=>{
+    document.querySelectorAll('section .watermark-container').forEach(c=>{
         const offset = window.scrollY - c.parentElement.offsetTop;
         c.style.transform = `translateY(${offset*0.2}px)`;
     });
 }
-// 滚动水印
+
 window.addEventListener('scroll', updateWatermarkScroll);
 window.addEventListener('resize', ()=>{
-    document.querySelectorAll('section.active').forEach(s=>generateWatermarks(s));
-    });
-    }
+    document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
+});
 
-// 切换语言
-function switchLang(lang){
-    document.querySelectorAll('main section').forEach(s=>{
-        s.classList.remove('active');
-        s.querySelector('.watermark-container').style.display='none';
-    });
-    const active = document.getElementById(lang);
-    active.classList.add('active');
-    active.querySelector('.watermark-container').style.display='flex';
-    generateWatermarks(active);
-
-    // 更新标题
-    const titleMap = {
-        en:'VideoSnap Hub - Privacy Policy',
-        zh:'速去印 - 隐私政策',
-        'zh-TW':'速去印 - 隱私權政策',
-        fr:'VideoSnap Hub - Politique de Confidentialité',
-        de:'VideoSnap Hub - Datenschutzrichtlinie',
-        ja:'VideoSnap Hub - プライバシーポリシー',
-        ko:'VideoSnap Hub - 개인정보 처리방침',
-        ar:'VideoSnap Hub - سياسة الخصوصية'
-    };
-    document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
-    document.title = document.getElementById('policy-title').textContent;
-
-    langOptions.style.display='none';
+ // 自动生成所有 section 水印
+    document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
+    updateWatermarkScroll();
 }
 
-// 初始化
-switchLang('en');
-window.addEventListener('resize', ()=>{
-    document.querySelectorAll('section.active').forEach(s=>generateWatermarks(s));
+    // ===== 默认英文 =====
+    switchLang('en');
 });
 </script>
+
 </body>
 </html>
-
-
 
 
 
