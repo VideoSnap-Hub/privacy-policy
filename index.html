@@ -861,14 +861,15 @@ section.active { display:block; }  /* 当前显示 */
 </main>
 
 <script>
-// ===== 页面加载完毕 =====
+// ===== 页面加载完成 =====
 document.addEventListener("DOMContentLoaded", function () {
     const langBtn = document.getElementById('langBtn');        // 下拉按钮
-    const langOptions = document.getElementById('langOptions'); // 下拉菜单
+    const langBtnText = document.getElementById('langBtnText');// 下拉按钮文字
+    const langOptions = document.getElementById('langOptions');// 下拉菜单容器
 
     // ===== 点击按钮显示/隐藏下拉 =====
     langBtn.addEventListener('click', e => {
-        e.stopPropagation(); // 阻止冒泡，避免 window 立即关闭
+        e.stopPropagation(); // 阻止事件冒泡，防止 window 立即关闭
         langOptions.style.display = langOptions.style.display==='block'?'none':'block';
     });
 
@@ -881,41 +882,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ===== 切换语言函数 =====
     window.switchLang = function(lang){
-        window.switchLang = function(lang) {
-    // 1. 切换 main 区域显示对应 section
-    document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
-    const active = document.getElementById(lang);
-    if(active) active.classList.add('active');
+        // 1. 切换 main 区域显示对应 section
+        document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+        const active = document.getElementById(lang);
+        if(active) active.classList.add('active');
 
-    // 2. 更新 LOGO 下标题和页面 <title>
-    const titleEl = document.getElementById('policy-title');
-    if(lang==='zh'){ titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; }
-    else if(lang==='zh-TW'){ titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; }
-    else {
-        const appName='VideoSnap Hub';
-        const texts = {
-            "en":"Privacy Policy","fr":"Politique de Confidentialité","de":"Datenschutzrichtlinie",
-            "ar":"سياسة الخصوصية","hi-rIN":"गोपनीयता नीति","pt-rBR":"Política de Privacidade",
-            "tr-rTR":"Gizlilik Politikası","ur-rPK":"رازداری کی پالیسی","ja":"プライバシーポリシー","ko":"개인정보 처리방침"
-        };
-        titleEl.textContent = `${appName} - ${texts[lang]||'Privacy Policy'}`;
-        document.title = titleEl.textContent;
+        // 2. 更新 LOGO 下标题和页面 title
+        const titleEl = document.getElementById('policy-title');
+        if(lang==='zh'){ titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; }
+        else if(lang==='zh-TW'){ titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; }
+        else if(lang==='en'){ titleEl.textContent='VideoSnap Hub - Privacy Policy'; document.title=titleEl.textContent; }
+        else {
+            const appName='VideoSnap Hub';
+            const texts = {
+                "fr":"Politique de Confidentialité","de":"Datenschutzrichtlinie",
+                "ar":"سياسة الخصوصية","hi-rIN":"गोपनीयता नीति","pt-rBR":"Política de Privacidade",
+                "tr-rTR":"Gizlilik Politikası","ur-rPK":"رازداری کی پالیسی","ja":"プライバシーポリシー","ko":"개인정보 처리방침"
+            };
+            titleEl.textContent = `${appName} - ${texts[lang]||'Privacy Policy'}`;
+            document.title = titleEl.textContent;
+        }
+
+        // 3. 更新下拉按钮文字
+        const btnText = active.querySelector('h2') ? active.querySelector('h2').textContent : langBtnText.textContent;
+        langBtnText.textContent = btnText;
+
+        // 4. 自动收起下拉
+        langOptions.style.display='none';
     }
 
-    // 3. 更新下拉按钮文字
-    const btnText = active.querySelector('h2') ? active.querySelector('h2').textContent : document.getElementById('langBtnText').textContent;
-    document.getElementById('langBtnText').textContent = btnText;
-
-    // 4. 隐藏下拉菜单
-    langOptions.style.display='none';
-}
-    // ===== 初始化默认语言（英文） =====
+    // ===== 初始化默认语言为英文 =====
     switchLang('en');
 });
 </script>
 
 </body>
 </html>
+
 
 
 
