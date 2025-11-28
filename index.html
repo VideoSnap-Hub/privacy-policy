@@ -13,43 +13,7 @@ header { background:#007BFF; padding:40px 20px; text-align:center; }
 header .logo { width:100px; margin-bottom:10px; }
 header h1 { color:#fff; font-size:clamp(16px,4vw,24px); margin:0; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
-/* ===== Main内容 ===== */
-main { 
-    max-width:1000px; 
-    margin:20px auto; 
-    background:#fff; 
-    padding:30px; 
-    border-radius:8px; 
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
-    position: relative; 
-    overflow: hidden; 
-}
-section { display:none; position: relative; z-index:1; }
-section.active { display:block; }
-
-/* 水印容器 */
-.watermark-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    user-select: none;
-    z-index:0;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
-    overflow: hidden;
-}
-.watermark-container span {
-    font-size: clamp(30px, 5vw, 80px);
-    color: rgba(0,0,0,0.05);
-    margin: 50px;
-    transform: rotate(-30deg);
-    white-space: nowrap;
-}
-
-/* ===== 语言下拉 ===== */
+/* ===== 语言选择下拉 ===== */
 nav { text-align:center; margin-bottom:20px; position:relative; }
 .lang-select { position:relative; display:inline-block; }
 .lang-select button { background:#007BFF; color:white; padding:8px 15px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; display:flex; align-items:center; }
@@ -57,23 +21,46 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
 .lang-options { display:none; position:absolute; background:#fff; min-width:160px; box-shadow:0 8px 16px rgba(0,0,0,0.2); border-radius:5px; z-index:1000; left:50%; transform:translateX(-50%); }
 .lang-options button { background:#fff; color:#333; border:none; width:100%; text-align:left; padding:8px 12px; cursor:pointer; }
 .lang-options button:hover { background:#f0f0f0; }
+
+/* ===== Main内容 ===== */
+main { max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); position:relative; overflow:hidden; }
+section { display:none; position: relative; }
+section.active { display:block; }
+
+/* ===== 水印 ===== */
+.watermark-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; user-select: none;
+    z-index: 0; display: flex; flex-wrap: wrap;
+    align-content: flex-start; justify-content: center; overflow: hidden;
+}
+.watermark-container span {
+    font-size: clamp(20px,5vw,80px);
+    color: rgba(0,0,0,0.05);
+    margin: 50px;
+    transform: rotate(-30deg);
+    white-space: nowrap;
+}
 </style>
 </head>
 <body>
 
+<!-- ===== Header: LOGO + 标题 ===== -->
 <header>
     <img src="ic_appicon_pro.png" alt="App Logo" class="logo">
-    <h1 id="policy-title">VideoSnap Hub - Privacy Policy</h1>
+    <h1 id="policy-title"></h1> <!-- LOGO下标题，随语言切换 -->
 </header>
 
+<!-- ===== 语言选择下拉 ===== -->
 <nav>
     <div class="lang-select">
         <button id="langBtn">
-            <span id="langBtnText">Language / 语言</span>
-            <span class="arrow">▼</span>
+            <span id="langBtnText">Language / 语言</span> <!-- 当前选择语言文字 -->
+            <span class="arrow">▼</span>                 <!-- 下拉箭头 -->
         </button>
         <div class="lang-options" id="langOptions">
-            <!-- 各语言按钮 -->
+            <!-- ===== 各语言按钮 ===== -->
             <button onclick="switchLang('zh')">简体中文</button>
             <button onclick="switchLang('zh-TW')">繁體中文</button>
             <button onclick="switchLang('en')">English</button>
@@ -89,7 +76,6 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
         </div>
     </div>
 </nav>
-
 <main>
 <!-- 简体中文 -->
 <section id="zh">
@@ -341,6 +327,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Android App Download-Link</h3>
     <p>Sie können die VideoSnap Hub Android-App über den folgenden Link herunterladen:</p>
     <p><a href="#">Klicken Sie hier, um die VideoSnap Hub Android-App herunterzuladen</a></p>
+        <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
     
 </section>
 
@@ -402,6 +391,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Android 앱 다운로드 링크</h3>
     <p>아래 링크를 통해 VideoSnap Hub Android 앱을 다운로드할 수 있습니다:</p>
     <p><a href="#">여기를 클릭하여 VideoSnap Hub Android 앱 다운로드</a></p>
+        <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
     
 </section>
 
@@ -463,6 +455,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Android 應用下載連結</h3>
     <p>您可以透過以下連結下載速去印 Android 應用程式：</p>
     <p><a href="#">點擊這裡下載速去印 Android 應用程式</a></p>
+        <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
     
 </section>
 
@@ -525,6 +520,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Lien de téléchargement de l'application Android</h3>
     <p>Vous pouvez télécharger l'application Android VideoSnap Hub via le lien ci-dessous :</p>
     <p><a href="#">Cliquez ici pour télécharger l'application Android VideoSnap Hub</a></p>
+        <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
     
 </section>
 
@@ -587,6 +585,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>رابط تحميل تطبيق Android</h3>
     <p>يمكنك تنزيل تطبيق Android الخاص بـ VideoSnap Hub من الرابط أدناه:</p>
     <p><a href="#">اضغط هنا لتنزيل تطبيق VideoSnap Hub لأندرويد</a></p>
+        <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
     
 </section>
 <!-- 印地语（印度） -->
@@ -647,6 +648,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Android ऐप डाउनलोड लिंक</h3>
     <p>आप नीचे दिए गए लिंक से VideoSnap Hub Android ऐप डाउनलोड कर सकते हैं:</p>
     <p><a href="#">यहाँ क्लिक करें VideoSnap Hub Android ऐप डाउनलोड करने के लिए</a></p>
+        <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
     
 </section>
 
@@ -708,6 +712,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Link de download do aplicativo Android</h3>
     <p>Você pode baixar o aplicativo Android VideoSnap Hub pelo link abaixo:</p>
     <p><a href="#">Clique aqui para baixar o aplicativo Android VideoSnap Hub</a></p>
+            <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
         
 </section>
 
@@ -769,6 +776,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Android ایپ ڈاؤن لوڈ لنک</h3>
     <p>آپ نیچے دیے گئے لنک سے VideoSnap Hub Android ایپ ڈاؤن لوڈ کر سکتے ہیں:</p>
     <p><a href="#">VideoSnap Hub Android ایپ ڈاؤن لوڈ کرنے کے لیے یہاں کلک کریں</a></p>
+         <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
      
 </section>
 
@@ -830,6 +840,9 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
     <h3>Android Uygulama İndirme Bağlantısı</h3>
     <p>VideoSnap Hub Android uygulamasını aşağıdaki bağlantıdan indirebilirsiniz:</p>
     <p><a href="#">VideoSnap Hub Android uygulamasını indirmek için tıklayın</a></p>
+        <!-- 水印容器：JS 会自动填充水印 -->
+    <div class="watermark-container"></div>
+
     
 </section>
     
@@ -837,6 +850,7 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
+
     const langBtn = document.getElementById('langBtn');
     const langOptions = document.getElementById('langOptions');
 
@@ -868,11 +882,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // ===== 水印滚动效果 =====
     function updateWatermarkScroll(){
-        document.querySelectorAll('section .watermark-container').forEach(c=>{
+        document.querySelectorAll('section.active .watermark-container').forEach(c=>{
             const offset = window.scrollY - c.parentElement.offsetTop;
             c.style.transform = `translateY(${offset*0.2}px)`;
         });
     }
+
     window.addEventListener('scroll', updateWatermarkScroll);
     window.addEventListener('resize', ()=>{
         document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
@@ -881,7 +896,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // ===== 切换语言函数 =====
     window.switchLang = function(lang){
+        // 隐藏所有 section
         document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+
+        // 显示选中 section
         const active = document.getElementById(lang);
         if(active) active.classList.add('active');
 
@@ -899,15 +917,15 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
         document.title = document.getElementById('policy-title').textContent;
 
-        // 自动生成所有 section 水印
-        document.querySelectorAll('section').forEach(s=>generateWatermarks(s));
+        // 自动生成水印
+        generateWatermarks(active);
         updateWatermarkScroll();
 
         // 自动收起下拉
         langOptions.style.display='none';
     }
 
-    // ===== 默认英文 =====
+    // ===== 初始化默认语言 =====
     switchLang('en');
 });
 </script>
