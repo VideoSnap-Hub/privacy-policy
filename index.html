@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VideoSnap Hub - Privacy Policy</title>
 <style>
+    main h3 {
+    color: #007BFF;
+}
+
 /* ===== 全局样式 ===== */
 body { font-family: Arial; margin:0; padding:0; background:#f5f5f5; color:#333; }
 
@@ -37,7 +41,7 @@ section.active { display:block; }
 }
 .watermark-container span {
     font-size: clamp(20px,5vw,80px);
-    color: rgba(0,0,0,0.05);
+    color: rgba(0,0,0,0.15);/* 从0.05改为0.15，加深水印 */
     margin: 50px;
     transform: rotate(-30deg);
     white-space: nowrap;
@@ -912,7 +916,11 @@ document.addEventListener("DOMContentLoaded", function(){
             de:'VideoSnap Hub - Datenschutzrichtlinie',
             ja:'VideoSnap Hub - プライバシーポリシー',
             ko:'VideoSnap Hub - 개인정보 처리방침',
-            ar:'VideoSnap Hub - سياسة الخصوصية'
+            ar:'VideoSnap Hub - سياسة الخصوصية',
+            tr-rTR:'VideoSnap Hub -Gizlilik Politikası',
+            ur-rPK:'VideoSnap Hub -رازداری کی پالیسی',
+            hi-rIN:'VideoSnap Hub -गोपनीयता नीति',
+            pt-rBR:'VideoSnap Hub -Política de Privacidade',
         };
         document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
         document.title = document.getElementById('policy-title').textContent;
@@ -932,6 +940,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
 
 
 
