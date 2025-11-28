@@ -4,93 +4,102 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VideoSnap Hub - Privacy Policy</title>
+
 <style>
 /* ===== 全局样式 ===== */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin:0; padding:0;
+body { 
+    font-family: Arial; 
+    margin:0; padding:0; 
     background:#f5f5f5; 
-    color:#333;
+    color:#333; 
 }
 
 /* ===== header 区域（LOGO + 标题） ===== */
-header {
-    background:#007BFF;
-    padding:40px 20px;
-    text-align:center;
+header { 
+    background:#007BFF;        /* 蓝色背景 */
+    padding:40px 20px;         /* 内边距 */
+    text-align:center;         /* 内容居中 */
 }
-header .logo {
-    width:100px;
-    height:auto;
-    margin-bottom:10px;
+header .logo { 
+    width:100px;               /* LOGO 宽度 */
+    margin-bottom:10px;        /* LOGO 与标题间距 */
 }
-header h1 {
-    color: #fff;
-    font-size: clamp(16px, 4vw, 24px);
-    margin: 0;
-    font-weight: bold;
-    white-space: nowrap;
+header h1 { 
+    color:#fff; 
+    font-size: clamp(16px, 4vw, 24px); /* 自动缩放字体 */
+    margin:0; 
+    font-weight:bold; 
+    white-space:nowrap;  /* 防止换行 */
+    overflow:hidden;     
+    text-overflow:ellipsis; 
 }
 
 /* ===== 主内容区域 ===== */
-main {
-    max-width:1000px;
-    margin:20px auto;
-    background:#fff;
-    padding:30px;
-    border-radius:8px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+main { 
+    max-width:1000px; 
+    margin:20px auto; 
+    background:#fff; 
+    padding:30px; 
+    border-radius:8px; 
+    box-shadow:0 0 10px rgba(0,0,0,0.1); 
 }
-main h1, main h2, main h3 {
-    color:#007BFF;
+main h2,h3 { 
+    color:#007BFF; /* 内容区标题蓝色 */ 
 }
 
 /* ===== 语言选择下拉 ===== */
-nav {
-    text-align:center;
-    margin-bottom:20px;
+nav { 
+    text-align:center; 
+    margin-bottom:20px; 
 }
-.lang-select {
-    position: relative;
-    display: inline-block;
+.lang-select { 
+    position: relative; 
+    display:inline-block; 
 }
-.lang-select button {
-    background:#007BFF;
-    color:white;
-    padding:8px 15px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
+/* ===== 下拉按钮样式 ===== */
+.lang-select button { 
+    background:#007BFF; 
+    color:white; 
+    padding:8px 15px; 
+    border:none; 
+    border-radius:5px; 
+    cursor:pointer; 
+    font-weight:bold; 
 }
-.lang-select button:after {
-    content: ' ▼';
-    font-size: 12px;
+/* ===== 下拉箭头 ===== */
+.lang-select button:after { 
+    content:' ▼'; 
+    font-size:12px; 
 }
-.lang-options {
-    display:none;
-    position:absolute;
-    background:#fff;
-    min-width:160px;
-    box-shadow:0 8px 16px rgba(0,0,0,0.2);
-    border-radius:5px;
-    z-index:1000;
-    left:50%;
-    transform:translateX(-50%);
+/* ===== 下拉选项容器 ===== */
+.lang-options { 
+    display:none;                  /* 默认隐藏 */
+    position:absolute; 
+    background:#fff; 
+    min-width:160px; 
+    box-shadow:0 8px 16px rgba(0,0,0,0.2); 
+    border-radius:5px; 
+    z-index:1000; 
+    left:50%; 
+    transform:translateX(-50%);    /* 下拉居中 */
 }
-.lang-options button {
-    background:#fff;
-    color:#333;
-    border:none;
-    width:100%;
-    text-align:left;
-    padding:8px 12px;
-    cursor:pointer;
+/* ===== 下拉选项按钮 ===== */
+.lang-options button { 
+    background:#fff; 
+    color:#333; 
+    border:none; 
+    width:100%; 
+    text-align:left; 
+    padding:8px 12px; 
+    cursor:pointer; 
 }
-.lang-options button:hover {
-    background:#f0f0f0;
+.lang-options button:hover { 
+    background:#f0f0f0; 
 }
+
+/* ===== 多语言内容区域 ===== */
+section { display:none; }       /* 默认隐藏 */
+section.active { display:block; } /* 当前语言显示 */
 
 /* ===== 响应式 ===== */
 @media(max-width:768px){
@@ -869,61 +878,55 @@ nav {
 </main>
 
 <script>
-// 页面加载完毕
+// ===== 页面加载完毕 =====
 document.addEventListener("DOMContentLoaded", function () {
-    const langBtn = document.getElementById('langBtn');
-    const langOptions = document.getElementById('langOptions');
+    const langBtn = document.getElementById('langBtn');        // 下拉按钮
+    const langOptions = document.getElementById('langOptions'); // 下拉菜单
 
-    // 下拉显示/隐藏
-    langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langOptions.style.display = langOptions.style.display === 'block' ? 'none' : 'block';
+    // ===== 点击按钮显示/隐藏下拉 =====
+    langBtn.addEventListener('click', e => {
+        e.stopPropagation(); // 阻止冒泡，避免 window 立即关闭
+        langOptions.style.display = langOptions.style.display==='block'?'none':'block';
     });
 
-    // 点击其他区域关闭下拉
-    window.addEventListener('click', e => {
-        if (!langBtn.contains(e.target) && !langOptions.contains(e.target)) {
-            langOptions.style.display = 'none';
+    // ===== 点击页面其他区域关闭下拉 =====
+    window.addEventListener('click', e=>{
+        if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
+            langOptions.style.display='none';
         }
     });
 
-    // 切换语言函数
+    // ===== 切换语言函数 =====
     window.switchLang = function(lang){
-        const sections = document.querySelectorAll('main section');
-        sections.forEach(s => s.classList.remove('active'));
-        const activeSection = document.getElementById(lang);
-        if(activeSection) activeSection.classList.add('active');
+        // 1. 切换 main 区域显示对应 section
+        document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+        const active = document.getElementById(lang);
+        if(active) active.classList.add('active');
 
-        // 隐藏下拉
-        langOptions.style.display = 'none';
-
-        // 更新按钮文字
-        const btnText = activeSection.querySelector('h2').textContent;
-        langBtn.textContent = btnText;
-
-        // 更新 header 标题
+        // 2. 更新 LOGO 下标题和页面 <title>
         const titleEl = document.getElementById('policy-title');
-        if(lang==='zh') { titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; return; }
-        if(lang==='zh-TW') { titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; return; }
+        if(lang==='zh'){ titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; }
+        else if(lang==='zh-TW'){ titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; }
+        else {
+            const appName='VideoSnap Hub';
+            const texts = {
+                "en":"Privacy Policy","fr":"Politique de Confidentialité","de":"Datenschutzrichtlinie",
+                "ar":"سياسة الخصوصية","hi-rIN":"गोपनीयता नीति","pt-rBR":"Política de Privacidade",
+                "tr-rTR":"Gizlilik Politikası","ur-rPK":"رازداری کی پالیسی","ja":"プライバシーポリシー","ko":"개인정보 처리방침"
+            };
+            titleEl.textContent = `${appName} - ${texts[lang]||'Privacy Policy'}`;
+            document.title = titleEl.textContent;
+        }
 
-        const appName = "VideoSnap Hub";
-        const policyText = {
-            "en":"Privacy Policy",
-            "fr":"Politique de Confidentialité",
-            "de":"Datenschutzrichtlinie",
-            "ar":"سياسة الخصوصية",
-            "hi-rIN":"गोपनीयता नीति",
-            "pt-rBR":"Política de Privacidade",
-            "tr-rTR":"Gizlilik Politikası",
-            "ur-rPK":"رازداری کی پالیسی",
-            "ja":"プライバシーポリシー",
-            "ko":"개인정보 처리방침"
-        };
-        titleEl.textContent = `${appName} - ${policyText[lang]||'Privacy Policy'}`;
-        document.title = titleEl.textContent;
+        // 3. 更新下拉按钮文字
+        const btnText = active.querySelector('h2').textContent;
+        langBtn.textContent = btnText+' ▼';
+
+        // 4. 隐藏下拉菜单
+        langOptions.style.display='none';
     }
 
-    // 初始化默认语言
+    // ===== 初始化默认语言（英文） =====
     switchLang('en');
 });
 </script>
