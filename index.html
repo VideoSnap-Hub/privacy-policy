@@ -829,12 +829,12 @@ window.addEventListener('click', e=>{
     }
 });
 
-// 生成水印
+// 水印生成函数
 function generateWatermarks(section){
     const container = section.querySelector('.watermark-container');
     container.innerHTML='';
-    const containerHeight = section.scrollHeight;
-    const repeats = Math.ceil(containerHeight / 150) * 5;
+    const paragraphCount = section.querySelectorAll('p').length;
+    const repeats = paragraphCount * 3; // 每段显示多个水印
     for(let i=0;i<repeats;i++){
         const span = document.createElement('span');
         span.textContent = '速去印 © 2025';
@@ -842,13 +842,19 @@ function generateWatermarks(section){
     }
 }
 
-// 滚动水印
-window.addEventListener('scroll', ()=>{
+// 水印滚动效果
+function updateWatermarkScroll(){
     document.querySelectorAll('section.active .watermark-container').forEach(c=>{
-        const scrollTop = c.parentElement.scrollTop || window.scrollY;
-        c.style.transform = `translateY(${scrollTop/5}px)`;
+        const offset = window.scrollY - c.parentElement.offsetTop;
+        c.style.transform = `translateY(${offset*0.2}px)`;
     });
-});
+}
+// 滚动水印
+window.addEventListener('scroll', updateWatermarkScroll);
+window.addEventListener('resize', ()=>{
+    document.querySelectorAll('section.active').forEach(s=>generateWatermarks(s));
+    });
+    }
 
 // 切换语言
 function switchLang(lang){
@@ -886,6 +892,7 @@ window.addEventListener('resize', ()=>{
 </script>
 </body>
 </html>
+
 
 
 
