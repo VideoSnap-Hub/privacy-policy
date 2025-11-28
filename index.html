@@ -895,6 +895,11 @@ section.active {
 </main>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const defaultLang = document.documentElement.lang || 'en';
+    switchLang(defaultLang); // 自动切换 header 和 section
+});
+
 // ===== 下拉切换显示 =====
 const langBtn = document.getElementById('langBtn');
 const langOptions = document.getElementById('langOptions');
@@ -968,6 +973,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
