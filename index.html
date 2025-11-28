@@ -889,85 +889,91 @@ nav {
 </main>
 
 <script>
+<script>
 // 页面加载完毕
 document.addEventListener("DOMContentLoaded", function () {
-    const langBtn = document.getElementById('langBtn');
-    const langOptions = document.getElementById('langOptions');
 
-// ===== 下拉切换显示 =====
-const langBtn = document.getElementById('langBtn');
-const langOptions = document.getElementById('langOptions');
+    const langBtn = document.getElementById('langBtn');       // 下拉按钮
+    const langOptions = document.getElementById('langOptions'); // 下拉菜单
 
-// 点击按钮显示/隐藏下拉
-langBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // 阻止事件冒泡，防止 window 点击事件立即关闭
-    langOptions.style.display = langOptions.style.display === 'block' ? 'none' : 'block';
-});
+    // ===== 默认按钮文字 =====
+    langBtn.textContent = '语言 / Language';
 
-// ===== 点击语言切换 section =====
-function switchLang(lang) {
-    // 隐藏所有 section
-    document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+    // ===== 点击按钮显示/隐藏下拉 =====
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // 阻止冒泡，避免 window 事件触发
+        langOptions.style.display = (langOptions.style.display === 'block') ? 'none' : 'block';
+    });
 
-    // 显示选择的 section
-    const activeSection = document.getElementById(lang);
-    if (activeSection) activeSection.classList.add('active');
+    // ===== 点击页面其他区域关闭下拉 =====
+    window.addEventListener('click', function(e){
+        if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
+            langOptions.style.display = 'none';
+        }
+    });
 
-    // 隐藏下拉菜单
-    langOptions.style.display = 'none';
+    // ===== 点击语言切换 section =====
+    window.switchLang = function(lang) {  // 定义为全局函数
+        // 隐藏所有 section
+        document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
 
-    // 更新下拉按钮文字（用 section 内的 h2 或自定义属性）
-   const btnText = activeSection.querySelector('h2')
-                ? activeSection.querySelector('h2').textContent
-                : langBtn.textContent;
-langBtn.textContent = btnText;
+        // 显示选择的 section
+        const activeSection = document.getElementById(lang);
+        if(activeSection) activeSection.classList.add('active');
 
-
-   // ===== 更新 header 标题 =====
-const titleEl = document.getElementById('policy-title');
-
-if(lang === 'en') { 
-    titleEl.textContent = 'VideoSnap Hub - Privacy Policy'; 
-    document.title = titleEl.textContent; // 同步 title
-    return; 
-}
-if(lang === 'zh') { 
-    titleEl.textContent = '速去印 - 隐私政策'; 
-    document.title = titleEl.textContent; // 同步 title
-    return; 
-}
-
-if(lang === 'zh-TW') { 
-    titleEl.textContent = '速去印 - 隱私權政策'; 
-    document.title = titleEl.textContent; // 同步 title
-    return; 
-}
-
-const appName = "VideoSnap Hub";
-const policyText = {
-
-    "fr": "Politique de Confidentialité",
-    "de": "Datenschutzrichtlinie",
-    "ar": "سياسة الخصوصية",
-    "hi-rIN": "गोपनीयता नीति",
-    "pt-rBR": "Política de Privacidade",
-    "tr-rTR": "Gizlilik Politikası",
-    "ur-rPK": "رازداری کی پالیسی",
-    "ja": "プライバシーポリシー",
-    "ko": "개인정보 처리방침"
-};
-titleEl.textContent = `${appName} - ${policyText[lang] || 'Privacy Policy'}`;
-document.title = titleEl.textContent; // 同步 title
-
-}
-
-// ===== 点击页面其他区域关闭下拉 =====
-window.addEventListener('click', function(e){
-    if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
+        // 隐藏下拉菜单
         langOptions.style.display = 'none';
+
+        // ===== 更新下拉按钮文字（用 section 内 h2） =====
+        const btnText = activeSection && activeSection.querySelector('h2')
+                        ? activeSection.querySelector('h2').textContent
+                        : langBtn.textContent;
+        langBtn.textContent = btnText;
+
+        // ===== 更新 header 标题和浏览器 title =====
+        const titleEl = document.getElementById('policy-title');
+
+        if(lang === 'zh') { 
+            titleEl.textContent = '速去印 - 隐私政策'; 
+            document.title = titleEl.textContent;
+            return; 
+        }
+
+        if(lang === 'zh-TW') { 
+            titleEl.textContent = '速去印 - 隱私權政策'; 
+            document.title = titleEl.textContent;
+            return; 
+        }
+
+        if(lang === 'en') { 
+            titleEl.textContent = 'VideoSnap Hub - Privacy Policy'; 
+            document.title = titleEl.textContent;
+            return; 
+        }
+
+        // 其他语言
+        const appName = "VideoSnap Hub";
+        const policyText = {
+            "fr": "Politique de Confidentialité",
+            "de": "Datenschutzrichtlinie",
+            "ar": "سياسة الخصوصية",
+            "hi-rIN": "गोपनीयता नीति",
+            "pt-rBR": "Política de Privacidade",
+            "tr-rTR": "Gizlilik Politikası",
+            "ur-rPK": "رازداری کی پالیسی",
+            "ja": "プライバシーポリシー",
+            "ko": "개인정보 처리방침"
+        };
+
+        titleEl.textContent = `${appName} - ${policyText[lang] || 'Privacy Policy'}`;
+        document.title = titleEl.textContent;
     }
+
+    // ===== 页面加载时，默认显示简体中文 =====
+    switchLang('en');
 });
 </script>
+
 
 
 
