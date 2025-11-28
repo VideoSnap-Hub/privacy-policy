@@ -43,9 +43,7 @@ main {
     border-radius:8px;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
-main h1,h2,h3 {
-    color:#007BFF;
-}
+main h1,h2,h3 { color:#007BFF; }
 
 /* ===== 语言选择下拉 ===== */
 nav {
@@ -65,7 +63,7 @@ nav {
     border-radius:5px;
     cursor:pointer;
     font-weight:bold;
-    display:inline-flex;
+    display:flex;
     align-items:center;
 }
 .lang-select button .arrow {
@@ -110,15 +108,15 @@ section.active { display:block; }
 <!-- ===== Header: LOGO + 标题 ===== -->
 <header>
     <img src="ic_appicon_pro.png" alt="App Logo" class="logo">
-    <h1 id="policy-title"></h1>
+    <h1 id="policy-title"></h1> <!-- LOGO下标题 -->
 </header>
 
 <!-- ===== 语言选择下拉 ===== -->
 <nav>
     <div class="lang-select">
         <button id="langBtn">
-            <span id="langBtnText">Language</span>
-            <span class="arrow">▼</span>
+            <span id="langBtnText">Language</span> <!-- 当前选择语言 -->
+            <span class="arrow">▼</span>           <!-- 下拉箭头 -->
         </button>
         <div class="lang-options" id="langOptions">
             <!-- 各语言按钮 -->
@@ -881,8 +879,9 @@ section.active { display:block; }
 // ===== 页面加载完成 =====
 document.addEventListener("DOMContentLoaded", function () {
     const langBtn = document.getElementById('langBtn');        
-    const langBtnText = document.getElementById('langBtnText'); 
+    const langBtnText = document.getElementById('langBtnText');
     const langOptions = document.getElementById('langOptions');
+    const langButtons = langOptions.querySelectorAll('button');
 
     // ===== 点击按钮显示/隐藏下拉 =====
     langBtn.addEventListener('click', e => {
@@ -898,7 +897,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ===== 切换语言函数 =====
-    window.switchLang = function(lang){
+    function switchLang(lang){
         // 1. 切换 main 区域显示对应 section
         document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
         const active = document.getElementById(lang);
@@ -906,27 +905,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 2. 更新 LOGO 下标题和页面 title
         const titleEl = document.getElementById('policy-title');
-        if(lang==='zh'){ titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; }
-        else if(lang==='zh-TW'){ titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; }
-        else if(lang==='en'){ titleEl.textContent='VideoSnap Hub - Privacy Policy'; document.title=titleEl.textContent; }
-        else {
-            const appName='VideoSnap Hub';
-            const texts = {
-                "fr":"Politique de Confidentialité","de":"Datenschutzrichtlinie",
-                "ar":"سياسة الخصوصية","hi-rIN":"गोपनीयता नीति","pt-rBR":"Política de Privacidade",
-                "tr-rTR":"Gizlilik Politikası","ur-rPK":"رازداری کی پالیسی","ja":"プライバシーポリシー","ko":"개인정보 처리방침"
-            };
-            titleEl.textContent = `${appName} - ${texts[lang]||'Privacy Policy'}`;
-            document.title = titleEl.textContent;
-        }
+        const titles = {
+            "zh":"速去印 - 隐私政策",
+            "zh-TW":"速去印 - 隱私權政策",
+            "en":"VideoSnap Hub - Privacy Policy",
+            "ja":"VideoSnap Hub - プライバシーポリシー"
+        };
+        titleEl.textContent = titles[lang] || `VideoSnap Hub - Privacy Policy`;
+        document.title = titleEl.textContent;
 
         // 3. 更新下拉按钮文字
-        const btnText = active.querySelector('h2') ? active.querySelector('h2').textContent : langBtnText.textContent;
-        langBtnText.textContent = btnText;
+        langBtnText.textContent = active.querySelector('h2').textContent;
 
         // 4. 自动收起下拉
         langOptions.style.display='none';
     }
+
+    // ===== 绑定语言按钮事件 =====
+    langButtons.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+            const lang = btn.getAttribute('data-lang');
+            switchLang(lang);
+        });
+    });
 
     // ===== 初始化默认语言为英文 =====
     switchLang('en');
@@ -935,7 +936,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
 
 
 
