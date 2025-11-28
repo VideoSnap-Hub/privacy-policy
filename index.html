@@ -14,10 +14,45 @@ header .logo { width:100px; margin-bottom:10px; }
 header h1 { color:#fff; font-size:clamp(16px,4vw,24px); margin:0; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
 /* ===== Main内容 ===== */
-main { max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
-main h1,h2,h3 { color:#007BFF; }
-section { display:none; }
+main { 
+    max-width:1000px; 
+    margin:20px auto; 
+    background:#fff; 
+    padding:30px; 
+    border-radius:8px; 
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    position: relative; /* 为水印定位做准备 */
+}
+
+/* Main水印 */
+main::before {
+    content: "VideoSnap Hub & 速去印 ©2026";       /* 水印文字，可改成英文或多语言 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg); /* 居中并旋转 */
+    font-size: 80px;
+    color: rgba(0,0,0,0.05);       /* 半透明，不影响阅读 */
+    pointer-events: none;           /* 不阻挡鼠标事件 */
+    user-select: none;              /* 不可选中 */
+    white-space: nowrap;
+    z-index: 0;                     /* 放在内容下方 */
+}
+
+main h1,h2,h3 { 
+    color:#007BFF; 
+    position: relative; /* 确保标题在水印上方 */
+    z-index: 1;
+}
+
+/* ===== Section内容显示 ===== */
+section { 
+    display:none; 
+    position: relative; /* 确保内容在水印上方 */
+    z-index: 1;
+}
 section.active { display:block; }
+
 
 /* ===== 语言下拉 ===== */
 nav { text-align:center; margin-bottom:20px; position:relative; }
@@ -849,6 +884,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
 
 
 
