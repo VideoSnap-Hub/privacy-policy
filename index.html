@@ -923,8 +923,8 @@ function switchLang(lang) {
     langOptions.style.display = 'none';
 
     // 更新下拉按钮文字（用 section 内的 h2 或自定义属性）
-    const btnText = activeSection.querySelector('h2') 
-                    ? activeSection.querySelector('h2').textContent 
+    const btnText = activeSection.querySelector('h2')
+                    ? activeSection.querySelector('h2').textContent + ' ▼'
                     : langBtn.textContent;
     langBtn.textContent = btnText;
 
@@ -973,6 +973,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
