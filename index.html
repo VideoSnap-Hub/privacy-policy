@@ -18,7 +18,6 @@ body {
 /* ===== header 区域（LOGO + 标题） ===== */
 header {
     background:#007BFF;        /* 蓝色背景 */
-    color:#fff;                /* 白色文字 */
     padding:40px 20px;         /* 内边距 */
     text-align:center;         /* 内容居中 */
 }
@@ -28,6 +27,7 @@ header .logo {
     margin-bottom:10px;        /* LOGO 与标题间距 */
 }
 header h1 {
+    color: #fff;               /* header 内标题为白色 */
     font-size:24px;
     margin:0;
     font-weight:bold;
@@ -43,9 +43,9 @@ main {
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-/* 标题颜色 */
-h1,h2,h3 {
-    color:#007BFF;
+/* ===== 内容区标题颜色 ===== */
+main h1, main h2, main h3 {
+    color:#007BFF;             /* 内容区标题蓝色 */
 }
 
 /* ===== 语言选择下拉 ===== */
@@ -118,6 +118,7 @@ section.active {
     .lang-select button{padding:6px 10px;}
     .lang-options button{padding:6px 10px;}
 }
+
 </style>
 </head>
 <body>
@@ -956,6 +957,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
