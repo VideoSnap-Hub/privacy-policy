@@ -5,32 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VideoSnap Hub - Privacy Policy</title>
 <style>
-/* ===== 全局样式 ===== */
 body { font-family: Arial; margin:0; padding:0; background:#f5f5f5; color:#333; }
-
-/* ===== Header ===== */
 header { background:#007BFF; padding:40px 20px; text-align:center; }
 header .logo { width:100px; margin-bottom:10px; }
 header h1 { color:#fff; font-size:clamp(16px,4vw,24px); margin:0; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-
-/* ===== Main内容 ===== */
 main { max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); position:relative; overflow:hidden; }
-section { display:none; position: relative; }
+section { display:none; position:relative; }
 section.active { display:block; }
 
 /* ===== 水印 ===== */
 .watermark-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none; user-select: none;
-    z-index: 0; display: flex; flex-wrap: wrap;
-    align-content: flex-start; justify-content: center; overflow: hidden;
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    user-select:none;
+    z-index:0;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    justify-content:center;
 }
 .watermark-container span {
-    font-size: clamp(20px,5vw,80px);
+    font-size:clamp(20px,5vw,80px);
     color: rgba(0,0,0,0.05);
-    margin: 50px;
+    margin:50px;
     transform: rotate(-30deg);
     white-space: nowrap;
 }
@@ -816,9 +815,10 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
 </main>
 
 <script>
-// ===== 下拉按钮逻辑 =====
 const langBtn = document.getElementById('langBtn');
 const langOptions = document.getElementById('langOptions');
+
+// 下拉按钮显示/隐藏
 langBtn.addEventListener('click', e=>{
     e.stopPropagation();
     langOptions.style.display = langOptions.style.display==='block'?'none':'block';
@@ -829,11 +829,12 @@ window.addEventListener('click', e=>{
     }
 });
 
-// ===== 生成水印 =====
+// 生成水印
 function generateWatermarks(section){
     const container = section.querySelector('.watermark-container');
-    container.innerHTML = '';
-    const repeats = Math.ceil(section.offsetHeight / 150) * 5;
+    container.innerHTML='';
+    const containerHeight = section.scrollHeight;
+    const repeats = Math.ceil(containerHeight / 150) * 5;
     for(let i=0;i<repeats;i++){
         const span = document.createElement('span');
         span.textContent = '速去印 © 2025';
@@ -841,7 +842,15 @@ function generateWatermarks(section){
     }
 }
 
-// ===== 切换语言 =====
+// 滚动水印
+window.addEventListener('scroll', ()=>{
+    document.querySelectorAll('section.active .watermark-container').forEach(c=>{
+        const scrollTop = c.parentElement.scrollTop || window.scrollY;
+        c.style.transform = `translateY(${scrollTop/5}px)`;
+    });
+});
+
+// 切换语言
 function switchLang(lang){
     document.querySelectorAll('main section').forEach(s=>{
         s.classList.remove('active');
@@ -866,17 +875,15 @@ function switchLang(lang){
     document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
     document.title = document.getElementById('policy-title').textContent;
 
-    // 收起下拉
     langOptions.style.display='none';
 }
 
-// ===== 初始化 =====
+// 初始化
 switchLang('en');
 window.addEventListener('resize', ()=>{
-    document.querySelectorAll('main section.active').forEach(s=>generateWatermarks(s));
+    document.querySelectorAll('section.active').forEach(s=>generateWatermarks(s));
 });
 </script>
-
 </body>
 </html>
 
