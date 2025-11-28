@@ -27,11 +27,15 @@ header .logo {
     margin-bottom:10px;        /* LOGO 与标题间距 */
 }
 header h1 {
-    color: #fff;               /* header 内标题为白色 */
-    font-size:24px;
-    margin:0;
-    font-weight:bold;
+    color: #fff;
+    font-size: clamp(16px, 4vw, 24px); /* 最小16px，最大24px，随屏幕宽度自动缩放 */
+    margin: 0;
+    font-weight: bold;
+    white-space: nowrap;  /* 防止换行 */
+    overflow: hidden;     /* 超出隐藏 */
+    text-overflow: ellipsis; /* 超出显示省略号，可选 */
 }
+
 
 /* ===== 主内容区域 ===== */
 main {
@@ -957,6 +961,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
