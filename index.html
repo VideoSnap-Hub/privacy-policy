@@ -121,7 +121,7 @@ section.active { display:block; } /* 当前语言显示 */
     <div class="lang-select">
         <button id="langBtn">
             <span id="langBtnText">Language</span>
-            <span class="arrow"></span>
+            
         </button>
         <div class="lang-options" id="langOptions">
             <!-- 各语言按钮 -->
@@ -929,6 +929,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 4. 隐藏下拉菜单
         langOptions.style.display='none';
+        }
     
 
     // ===== 初始化默认语言（英文） =====
@@ -938,6 +939,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
