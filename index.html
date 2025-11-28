@@ -816,48 +816,20 @@ nav { text-align:center; margin-bottom:20px; position:relative; }
 </main>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-    const langBtn = document.getElementById('langBtn');
-    const langOptions = document.getElementById('langOptions');
-
-    // ===== 点击按钮显示/隐藏下拉 =====
-    langBtn.addEventListener('click', function(e){
-        e.stopPropagation();
-        langOptions.style.display = langOptions.style.display==='block'?'none':'block';
-    });
-
-    // ===== 点击页面其他区域收起下拉 =====
-    window.addEventListener('click', function(e){
-        if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
-            langOptions.style.display='none';
-        }
-    });
-
-    // ===== 切换语言函数 =====
-    window.switchLang = function(lang){
-        document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
-        const active = document.getElementById(lang);
-        if(active) active.classList.add('active');
-
-        // 更新 LOGO下标题和页面title
-        const titleEl = document.getElementById('policy-title');
-        const titleMap = {
-            en:'VideoSnap Hub - Privacy Policy',
-            zh:'速去印 - 隐私政策',
-            'zh-TW':'速去印 - 隱私權政策',
-            fr:'VideoSnap Hub - Politique de Confidentialité',
-            de:'VideoSnap Hub - Datenschutzrichtlinie',
-            ja:'VideoSnap Hub - プライバシーポリシー',
-            ko:'VideoSnap Hub - 개인정보 처리방침',
-            ar:'VideoSnap Hub - سياسة الخصوصية'
-        };
-        titleEl.textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
-        document.title = titleEl.textContent;
-
-        // 自动收起下拉
+// ===== 下拉按钮逻辑 =====
+const langBtn = document.getElementById('langBtn');
+const langOptions = document.getElementById('langOptions');
+langBtn.addEventListener('click', e=>{
+    e.stopPropagation();
+    langOptions.style.display = langOptions.style.display==='block'?'none':'block';
+});
+window.addEventListener('click', e=>{
+    if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
         langOptions.style.display='none';
     }
-    // ===== 生成水印 =====
+});
+
+// ===== 生成水印 =====
 function generateWatermarks(section){
     const container = section.querySelector('.watermark-container');
     container.innerHTML = '';
@@ -869,8 +841,39 @@ function generateWatermarks(section){
     }
 }
 
-    // ===== 默认英文 =====
-    switchLang('en');
+// ===== 切换语言 =====
+function switchLang(lang){
+    document.querySelectorAll('main section').forEach(s=>{
+        s.classList.remove('active');
+        s.querySelector('.watermark-container').style.display='none';
+    });
+    const active = document.getElementById(lang);
+    active.classList.add('active');
+    active.querySelector('.watermark-container').style.display='flex';
+    generateWatermarks(active);
+
+    // 更新标题
+    const titleMap = {
+        en:'VideoSnap Hub - Privacy Policy',
+        zh:'速去印 - 隐私政策',
+        'zh-TW':'速去印 - 隱私權政策',
+        fr:'VideoSnap Hub - Politique de Confidentialité',
+        de:'VideoSnap Hub - Datenschutzrichtlinie',
+        ja:'VideoSnap Hub - プライバシーポリシー',
+        ko:'VideoSnap Hub - 개인정보 처리방침',
+        ar:'VideoSnap Hub - سياسة الخصوصية'
+    };
+    document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
+    document.title = document.getElementById('policy-title').textContent;
+
+    // 收起下拉
+    langOptions.style.display='none';
+}
+
+// ===== 初始化 =====
+switchLang('en');
+window.addEventListener('resize', ()=>{
+    document.querySelectorAll('main section.active').forEach(s=>generateWatermarks(s));
 });
 </script>
 
