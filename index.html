@@ -7,79 +7,96 @@
 
 <style>
 /* ===== 全局样式 ===== */
-body { font-family: Arial; margin:0; padding:0; background:#f5f5f5; color:#333; }
+body {
+    font-family: Arial, sans-serif;
+    margin:0; padding:0;
+    background:#f5f5f5;
+    color:#333;
+}
 
 /* ===== Header 区域 ===== */
-header { 
-    background:#007BFF;          /* 蓝色背景 */
-    padding:40px 20px;           /* 内边距 */
-    text-align:center;           /* 内容居中 */
+header {
+    background:#007BFF;
+    padding:40px 20px;
+    text-align:center;
 }
-header .logo { width:100px; margin-bottom:10px; }  /* LOGO 样式 */
-header h1 { 
-    color:#fff;                  /* 白色文字 */
-    font-size:clamp(16px, 4vw, 24px); /* 自适应字体大小 */
-    margin:0; 
-    font-weight:bold; 
-    white-space:nowrap;          /* 不换行 */
-    overflow:hidden;             /* 超出隐藏 */
-    text-overflow:ellipsis;      /* 超出显示省略号 */
+header .logo {
+    width:100px; 
+    margin-bottom:10px;
+}
+header h1 {
+    color:#fff;
+    font-size:clamp(16px,4vw,24px);
+    margin:0;
+    font-weight:bold;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 /* ===== 主内容区域 ===== */
-main { max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
-main h1,h2,h3 { color:#007BFF; }  /* 内容标题颜色 */
+main {
+    max-width:1000px;
+    margin:20px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+main h1,h2,h3 {
+    color:#007BFF;
+}
 
 /* ===== 语言选择下拉 ===== */
-nav { text-align:center; margin-bottom:20px; position:relative; }
-
-/* 下拉按钮容器 */
-.lang-select { position:relative; display:inline-block; }
-
-/* 下拉按钮样式 */
-.lang-select button { 
-    background:#007BFF; 
-    color:white; 
-    padding:8px 15px; 
-    border:none; 
-    border-radius:5px; 
-    cursor:pointer; 
-    font-weight:bold; 
+nav {
+    text-align:center;
+    margin-bottom:20px;
+    position:relative;
 }
-
-/* 下拉箭头样式 */
-.lang-select button .arrow { font-size:12px; margin-left:4px; }
-
-/* 下拉选项容器，初始隐藏 */
-.lang-options { 
-    display:none; 
-    position:absolute; 
-    background:#fff; 
-    min-width:160px; 
-    box-shadow:0 8px 16px rgba(0,0,0,0.2); 
-    border-radius:5px; 
-    z-index:1000; 
-    left:50%; 
-    transform:translateX(-50%); /* 下拉居中 */ 
+.lang-select {
+    position:relative;
+    display:inline-block;
 }
-
-/* 下拉选项按钮样式 */
-.lang-options button { 
-    background:#fff; 
-    color:#333; 
-    border:none; 
-    width:100%; 
-    text-align:left; 
-    padding:8px 12px; 
-    cursor:pointer; 
+.lang-select button {
+    background:#007BFF;
+    color:white;
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    display:inline-flex;
+    align-items:center;
 }
-
-/* hover 效果 */
+.lang-select button .arrow {
+    font-size:12px;
+    margin-left:4px;
+}
+.lang-options {
+    display:none;
+    position:absolute;
+    background:#fff;
+    min-width:160px;
+    box-shadow:0 8px 16px rgba(0,0,0,0.2);
+    border-radius:5px;
+    z-index:1000;
+    left:50%;
+    transform:translateX(-50%);
+}
+.lang-options button {
+    background:#fff;
+    color:#333;
+    border:none;
+    width:100%;
+    text-align:left;
+    padding:8px 12px;
+    cursor:pointer;
+}
 .lang-options button:hover { background:#f0f0f0; }
 
 /* ===== 内容区 section ===== */
-section { display:none; }          /* 默认隐藏 */
-section.active { display:block; }  /* 当前显示 */
+section { display:none; }
+section.active { display:block; }
 
 /* ===== 响应式 ===== */
 @media(max-width:768px){ 
@@ -93,15 +110,15 @@ section.active { display:block; }  /* 当前显示 */
 <!-- ===== Header: LOGO + 标题 ===== -->
 <header>
     <img src="ic_appicon_pro.png" alt="App Logo" class="logo">
-    <h1 id="policy-title"></h1> <!-- LOGO下标题，随语言切换 -->
+    <h1 id="policy-title"></h1>
 </header>
 
 <!-- ===== 语言选择下拉 ===== -->
 <nav>
     <div class="lang-select">
         <button id="langBtn">
-            <span id="langBtnText">Language</span>  <!-- 当前选择语言文字 -->
-            <span class="arrow">▼</span>           <!-- 下拉箭头 -->
+            <span id="langBtnText">Language</span>
+            <span class="arrow">▼</span>
         </button>
         <div class="lang-options" id="langOptions">
             <!-- 各语言按钮 -->
@@ -863,13 +880,13 @@ section.active { display:block; }  /* 当前显示 */
 <script>
 // ===== 页面加载完成 =====
 document.addEventListener("DOMContentLoaded", function () {
-    const langBtn = document.getElementById('langBtn');        // 下拉按钮
-    const langBtnText = document.getElementById('langBtnText');// 下拉按钮文字
-    const langOptions = document.getElementById('langOptions');// 下拉菜单容器
+    const langBtn = document.getElementById('langBtn');        
+    const langBtnText = document.getElementById('langBtnText'); 
+    const langOptions = document.getElementById('langOptions');
 
     // ===== 点击按钮显示/隐藏下拉 =====
     langBtn.addEventListener('click', e => {
-        e.stopPropagation(); // 阻止事件冒泡，防止 window 立即关闭
+        e.stopPropagation();
         langOptions.style.display = langOptions.style.display==='block'?'none':'block';
     });
 
@@ -918,6 +935,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
