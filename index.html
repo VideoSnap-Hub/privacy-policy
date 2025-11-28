@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>隐私政策 - 速去印 / VideoSnap Hub</title>
-
+<title>VideoSnap Hub - Privacy Policy</title>
 <style>
 /* ===== 全局样式 ===== */
 body {
@@ -17,25 +16,22 @@ body {
 
 /* ===== header 区域（LOGO + 标题） ===== */
 header {
-    background:#007BFF;        /* 蓝色背景 */
-    padding:40px 20px;         /* 内边距 */
-    text-align:center;         /* 内容居中 */
+    background:#007BFF;
+    padding:40px 20px;
+    text-align:center;
 }
 header .logo {
-    width:100px;               /* LOGO 宽度 */
+    width:100px;
     height:auto;
-    margin-bottom:10px;        /* LOGO 与标题间距 */
+    margin-bottom:10px;
 }
 header h1 {
     color: #fff;
-    font-size: clamp(16px, 4vw, 24px); /* 最小16px，最大24px，随屏幕宽度自动缩放 */
+    font-size: clamp(16px, 4vw, 24px);
     margin: 0;
     font-weight: bold;
-    white-space: nowrap;  /* 防止换行 */
-    overflow: hidden;     /* 超出隐藏 */
-    text-overflow: ellipsis; /* 超出显示省略号，可选 */
+    white-space: nowrap;
 }
-
 
 /* ===== 主内容区域 ===== */
 main {
@@ -46,26 +42,19 @@ main {
     border-radius:8px;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
-
-/* ===== 内容区标题颜色 ===== */
 main h1, main h2, main h3 {
-    color:#007BFF;             /* 内容区标题蓝色 */
+    color:#007BFF;
 }
 
 /* ===== 语言选择下拉 ===== */
 nav {
     text-align:center;
     margin-bottom:20px;
-    position:relative;
 }
-
-/* 抽屉下拉容器 */
 .lang-select {
     position: relative;
     display: inline-block;
 }
-
-/* 按钮样式 */
 .lang-select button {
     background:#007BFF;
     color:white;
@@ -75,14 +64,10 @@ nav {
     cursor:pointer;
     font-weight:bold;
 }
-
-/* 下拉箭头（文字后） */
 .lang-select button:after {
     content: ' ▼';
     font-size: 12px;
 }
-
-/* 下拉选项容器，初始隐藏 */
 .lang-options {
     display:none;
     position:absolute;
@@ -92,10 +77,8 @@ nav {
     border-radius:5px;
     z-index:1000;
     left:50%;
-    transform:translateX(-50%); /* 下拉居中 */
+    transform:translateX(-50%);
 }
-
-/* 下拉选项按钮 */
 .lang-options button {
     background:#fff;
     color:#333;
@@ -105,18 +88,15 @@ nav {
     padding:8px 12px;
     cursor:pointer;
 }
-
-/* hover 效果 */
 .lang-options button:hover {
     background:#f0f0f0;
 }
 
-/* 响应式 */
+/* ===== 响应式 ===== */
 @media(max-width:768px){
     .lang-select button{padding:6px 10px;}
     .lang-options button{padding:6px 10px;}
 }
-
 </style>
 </head>
 <body>
@@ -124,13 +104,13 @@ nav {
 <!-- ===== Header: LOGO + 标题 ===== -->
 <header>
     <img src="ic_appicon_pro.png" alt="App Logo" class="logo">
-    <h1 id="policy-title"></h1>
+    <h1 id="policy-title">VideoSnap Hub - Privacy Policy</h1>
 </header>
 
 <!-- ===== 语言选择下拉 ===== -->
 <nav>
     <div class="lang-select">
-        <button id="langBtn">语言 / Language</button>
+        <button id="langBtn">Language/语言</button>
         <div class="lang-options" id="langOptions">
             <!-- 各语言按钮 -->
             <button onclick="switchLang('zh')">简体中文</button>
@@ -889,7 +869,6 @@ nav {
 </main>
 
 <script>
-<script>
 // 页面加载完毕
 document.addEventListener("DOMContentLoaded", function () {
     const langBtn = document.getElementById('langBtn');
@@ -908,29 +887,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 语言切换函数
+    // 切换语言函数
     window.switchLang = function(lang){
-        document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+        const sections = document.querySelectorAll('main section');
+        sections.forEach(s => s.classList.remove('active'));
         const activeSection = document.getElementById(lang);
-        if (activeSection) activeSection.classList.add('active');
+        if(activeSection) activeSection.classList.add('active');
 
         // 隐藏下拉
         langOptions.style.display = 'none';
 
         // 更新按钮文字
-        const btnText = activeSection.querySelector('h2')
-                        ? activeSection.querySelector('h2').textContent
-                        : langBtn.textContent;
-        langBtn.textContent = btnText + ' ▼';
+        const btnText = activeSection.querySelector('h2').textContent;
+        langBtn.textContent = btnText;
 
         // 更新 header 标题
         const titleEl = document.getElementById('policy-title');
-        if (lang === 'zh') { titleEl.textContent='速去印 - 隐私政策'; document.title = titleEl.textContent; return; }
-        if (lang === 'zh-TW') { titleEl.textContent='速去印 - 隱私權政策'; document.title = titleEl.textContent; return; }
-        if (lang === 'en') { titleEl.textContent='VideoSnap Hub - Privacy Policy'; document.title = titleEl.textContent; return; }
+        if(lang==='zh') { titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; return; }
+        if(lang==='zh-TW') { titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; return; }
 
         const appName = "VideoSnap Hub";
         const policyText = {
+            "en":"Privacy Policy",
             "fr":"Politique de Confidentialité",
             "de":"Datenschutzrichtlinie",
             "ar":"سياسة الخصوصية",
@@ -948,7 +926,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // 初始化默认语言
     switchLang('en');
 });
+</script>
 
+</body>
+</html>
 
 
 
