@@ -5,22 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VideoSnap Hub - Privacy Policy</title>
 <style>
+/* ===== 全局样式 ===== */
 body { font-family: Arial; margin:0; padding:0; background:#f5f5f5; color:#333; }
+
+/* ===== Header ===== */
 header { background:#007BFF; padding:40px 20px; text-align:center; }
 header .logo { width:100px; margin-bottom:10px; }
 header h1 { color:#fff; font-size:clamp(16px,4vw,24px); margin:0; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-main { max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+
+/* ===== Main内容 ===== */
+main { max-width:1000px; margin:20px auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
 main h1,h2,h3 { color:#007BFF; }
+section { display:none; }
+section.active { display:block; }
+
+/* ===== 语言下拉 ===== */
 nav { text-align:center; margin-bottom:20px; position:relative; }
 .lang-select { position:relative; display:inline-block; }
 .lang-select button { background:#007BFF; color:white; padding:8px 15px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; display:flex; align-items:center; }
-.lang-select .arrow { font-size:12px; margin-left:4px; }
+.lang-select button .arrow { font-size:12px; margin-left:4px; }
 .lang-options { display:none; position:absolute; background:#fff; min-width:160px; box-shadow:0 8px 16px rgba(0,0,0,0.2); border-radius:5px; z-index:1000; left:50%; transform:translateX(-50%); }
 .lang-options button { background:#fff; color:#333; border:none; width:100%; text-align:left; padding:8px 12px; cursor:pointer; }
 .lang-options button:hover { background:#f0f0f0; }
-section { display:none; }
-section.active { display:block; }
-@media(max-width:768px){ .lang-select button{padding:6px 10px;} .lang-options button{padding:6px 10px;} }
 </style>
 </head>
 <body>
@@ -33,7 +39,7 @@ section.active { display:block; }
 <nav>
     <div class="lang-select">
         <button id="langBtn">
-            <span id="langBtnText">Language</span>
+            <span id="langBtnText">Language / 语言</span>
             <span class="arrow">▼</span>
         </button>
         <div class="lang-options" id="langOptions">
@@ -794,20 +800,20 @@ section.active { display:block; }
 </main>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const langBtn = document.getElementById('langBtn');        
+document.addEventListener("DOMContentLoaded", function(){
+    const langBtn = document.getElementById('langBtn');
     const langOptions = document.getElementById('langOptions');
 
     // ===== 点击按钮显示/隐藏下拉 =====
-    langBtn.addEventListener('click', e => {
+    langBtn.addEventListener('click', function(e){
         e.stopPropagation();
-        langOptions.style.display = langOptions.style.display === 'block' ? 'none' : 'block';
+        langOptions.style.display = langOptions.style.display==='block'?'none':'block';
     });
 
-    // ===== 点击页面其他区域关闭下拉 =====
-    window.addEventListener('click', e => {
-        if (!langBtn.contains(e.target) && !langOptions.contains(e.target)) {
-            langOptions.style.display = 'none';
+    // ===== 点击页面其他区域收起下拉 =====
+    window.addEventListener('click', function(e){
+        if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
+            langOptions.style.display='none';
         }
     });
 
@@ -817,29 +823,32 @@ document.addEventListener("DOMContentLoaded", function () {
         const active = document.getElementById(lang);
         if(active) active.classList.add('active');
 
-        // LOGO下标题和页面title随语言切换
+        // 更新 LOGO下标题和页面title
         const titleEl = document.getElementById('policy-title');
-        if(lang==='zh'){ titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; }
-        else if(lang==='zh-TW'){ titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; }
-        else if(lang==='en'){ titleEl.textContent='VideoSnap Hub - Privacy Policy'; document.title=titleEl.textContent; }
-        else {
-            const appName='VideoSnap Hub';
-            const texts = {
-                "fr":"Politique de Confidentialité","de":"Datenschutzrichtlinie",
-                "ar":"سياسة الخصوصية","hi-rIN":"गोपनीयता नीति","pt-rBR":"Política de Privacidade",
-                "tr-rTR":"Gizlilik Politikası","ur-rPK":"رازداری کی پالیسی","ja":"プライバシーポリシー","ko":"개인정보 처리방침"
-            };
-            titleEl.textContent = `${appName} - ${texts[lang]||'Privacy Policy'}`;
-            document.title = titleEl.textContent;
-        }
+        const titleMap = {
+            en:'VideoSnap Hub - Privacy Policy',
+            zh:'速去印 - 隐私政策',
+            'zh-TW':'速去印 - 隱私權政策',
+            fr:'VideoSnap Hub - Politique de Confidentialité',
+            de:'VideoSnap Hub - Datenschutzrichtlinie',
+            ja:'VideoSnap Hub - プライバシーポリシー',
+            ko:'VideoSnap Hub - 개인정보 처리방침',
+            ar:'VideoSnap Hub - سياسة الخصوصية'
+        };
+        titleEl.textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
+        document.title = titleEl.textContent;
 
         // 自动收起下拉
         langOptions.style.display='none';
     }
 
-    // ===== 初始化默认语言为英文 =====
+    // ===== 默认英文 =====
     switchLang('en');
 });
+</script>
+
+</body>
+</html>
 
 
 
