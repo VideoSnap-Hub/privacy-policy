@@ -925,8 +925,13 @@ function switchLang(lang) {
 
    // ===== 更新 header 标题 =====
 const titleEl = document.getElementById('policy-title');
-if(lang === 'zh') { 
+if(lang === 'en') { 
     titleEl.textContent = '速去印 - 隐私政策'; 
+    document.title = titleEl.textContent; // 同步 title
+    return; 
+}
+if(lang === 'zh') { 
+    titleEl.textContent = 'VideoSnap Hub - Privacy Policy'; 
     document.title = titleEl.textContent; // 同步 title
     return; 
 }
@@ -938,7 +943,7 @@ if(lang === 'zh-TW') {
 
 const appName = "VideoSnap Hub";
 const policyText = {
-    "en": "Privacy Policy",
+
     "fr": "Politique de Confidentialité",
     "de": "Datenschutzrichtlinie",
     "ar": "سياسة الخصوصية",
@@ -961,6 +966,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
