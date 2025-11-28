@@ -119,7 +119,10 @@ section.active { display:block; } /* 当前语言显示 */
 <!-- ===== 语言选择下拉 ===== -->
 <nav>
     <div class="lang-select">
-        <button id="langBtn">Language/语言</button>
+        <button id="langBtn">
+            <span id="langBtnText">Language</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="lang-options" id="langOptions">
             <!-- 各语言按钮 -->
             <button onclick="switchLang('zh')">简体中文</button>
@@ -919,8 +922,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // 3. 更新下拉按钮文字
-        const btnText = active.querySelector('h2').textContent;
-        langBtn.textContent = btnText;
+        const btnText = activeSection.querySelector('h2')
+                    ? activeSection.querySelector('h2').textContent
+                    : langBtnText.textContent;
+    document.getElementById('langBtnText').textContent = btnText;
 
         // 4. 隐藏下拉菜单
         langOptions.style.display='none';
@@ -933,6 +938,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
