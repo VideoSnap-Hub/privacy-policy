@@ -901,37 +901,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ===== 切换语言函数 =====
     window.switchLang = function(lang){
-        // 1. 切换 main 区域显示对应 section
-        document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
-        const active = document.getElementById(lang);
-        if(active) active.classList.add('active');
+        window.switchLang = function(lang) {
+    // 1. 切换 main 区域显示对应 section
+    document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+    const active = document.getElementById(lang);
+    if(active) active.classList.add('active');
 
-        // 2. 更新 LOGO 下标题和页面 <title>
-        const titleEl = document.getElementById('policy-title');
-        if(lang==='zh'){ titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; }
-        else if(lang==='zh-TW'){ titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; }
-        else {
-            const appName='VideoSnap Hub';
-            const texts = {
-                "en":"Privacy Policy","fr":"Politique de Confidentialité","de":"Datenschutzrichtlinie",
-                "ar":"سياسة الخصوصية","hi-rIN":"गोपनीयता नीति","pt-rBR":"Política de Privacidade",
-                "tr-rTR":"Gizlilik Politikası","ur-rPK":"رازداری کی پالیسی","ja":"プライバシーポリシー","ko":"개인정보 처리방침"
-            };
-            titleEl.textContent = `${appName} - ${texts[lang]||'Privacy Policy'}`;
-            document.title = titleEl.textContent;
-        }
+    // 2. 更新 LOGO 下标题和页面 <title>
+    const titleEl = document.getElementById('policy-title');
+    if(lang==='zh'){ titleEl.textContent='速去印 - 隐私政策'; document.title=titleEl.textContent; }
+    else if(lang==='zh-TW'){ titleEl.textContent='速去印 - 隱私權政策'; document.title=titleEl.textContent; }
+    else {
+        const appName='VideoSnap Hub';
+        const texts = {
+            "en":"Privacy Policy","fr":"Politique de Confidentialité","de":"Datenschutzrichtlinie",
+            "ar":"سياسة الخصوصية","hi-rIN":"गोपनीयता नीति","pt-rBR":"Política de Privacidade",
+            "tr-rTR":"Gizlilik Politikası","ur-rPK":"رازداری کی پالیسی","ja":"プライバシーポリシー","ko":"개인정보 처리방침"
+        };
+        titleEl.textContent = `${appName} - ${texts[lang]||'Privacy Policy'}`;
+        document.title = titleEl.textContent;
+    }
 
-        // 3. 更新下拉按钮文字
-        const btnText = activeSection.querySelector('h2')
-                    ? activeSection.querySelector('h2').textContent
-                    : langBtnText.textContent;
+    // 3. 更新下拉按钮文字
+    const btnText = active.querySelector('h2') ? active.querySelector('h2').textContent : document.getElementById('langBtnText').textContent;
     document.getElementById('langBtnText').textContent = btnText;
 
-        // 4. 隐藏下拉菜单
-        langOptions.style.display='none';
-        }
-    
-
+    // 4. 隐藏下拉菜单
+    langOptions.style.display='none';
+}
     // ===== 初始化默认语言（英文） =====
     switchLang('en');
 });
@@ -939,6 +936,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
 
 
 
