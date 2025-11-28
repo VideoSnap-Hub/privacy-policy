@@ -889,10 +889,10 @@ nav {
 </main>
 
 <script>
+// 页面加载完毕
 document.addEventListener("DOMContentLoaded", function () {
-    const defaultLang = document.documentElement.lang || 'en';
-    switchLang(defaultLang); // 自动切换 header 和 section
-});
+    const langBtn = document.getElementById('langBtn');
+    const langOptions = document.getElementById('langOptions');
 
 // ===== 下拉切换显示 =====
 const langBtn = document.getElementById('langBtn');
@@ -968,6 +968,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
