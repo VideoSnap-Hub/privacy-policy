@@ -73,11 +73,13 @@ nav {
     border:none;
     border-radius:5px;
     cursor:pointer;
+    font-weight:bold;
 }
 
-/* 按钮右侧小箭头 */
+/* 下拉箭头（文字后） */
 .lang-select button:after {
     content: ' ▼';
+    font-size: 12px;
 }
 
 /* 下拉选项容器，初始隐藏 */
@@ -85,14 +87,15 @@ nav {
     display:none;
     position:absolute;
     background:#fff;
-    min-width:150px;
+    min-width:160px;
     box-shadow:0 8px 16px rgba(0,0,0,0.2);
     border-radius:5px;
     z-index:1000;
-    left:0;
+    left:50%;
+    transform:translateX(-50%); /* 下拉居中 */
 }
 
-/* 下拉按钮样式 */
+/* 下拉选项按钮 */
 .lang-options button {
     background:#fff;
     color:#333;
@@ -108,17 +111,8 @@ nav {
     background:#f0f0f0;
 }
 
-/* ===== 多语言内容区 ===== */
-section {
-    display:none;             /* 默认隐藏 */
-}
-section.active {
-    display:block;            /* 当前语言显示 */
-}
-
-/* ===== 响应式 ===== */
+/* 响应式 */
 @media(max-width:768px){
-    main{padding:15px;}
     .lang-select button{padding:6px 10px;}
     .lang-options button{padding:6px 10px;}
 }
@@ -973,6 +967,7 @@ window.addEventListener('click', function(e){
     }
 });
 </script>
+
 
 
 
