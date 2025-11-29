@@ -874,22 +874,23 @@ document.addEventListener("DOMContentLoaded", function(){
     // ===== 点击按钮显示/隐藏下拉 =====
     langBtn.addEventListener('click', function(e){
         e.stopPropagation();
-        langOptions.style.display = langOptions.style.display==='block'?'none':'block';
+        langOptions.style.display = langOptions.style.display === 'block' ? 'none' : 'block';
     });
 
     // ===== 点击页面其他区域收起下拉 =====
     window.addEventListener('click', function(e){
         if(!langBtn.contains(e.target) && !langOptions.contains(e.target)){
-            langOptions.style.display='none';
+            langOptions.style.display = 'none';
         }
     });
 
     // ===== 水印生成函数 =====
     function generateWatermarks(section){
         const container = section.querySelector('.watermark-container');
-        container.innerHTML='';
+        if(!container) return;
+        container.innerHTML = '';
         const paragraphCount = section.querySelectorAll('p').length;
-        const repeats = paragraphCount * 3; // 每段显示多个水印
+        const repeats = paragraphCount * 3; 
         for(let i=0;i<repeats;i++){
             const span = document.createElement('span');
             span.textContent = 'VideoSnap Hub & 速去印 ©2026';
@@ -922,64 +923,62 @@ document.addEventListener("DOMContentLoaded", function(){
 
         // LOGO下标题和页面title
         const titleMap = {
-    en:'VideoSnap Hub - Privacy Policy',
-    zh:'速去印 - 隐私政策',
-    'zh-TW':'速去印 - 隱私權政策',
-    fr:'VideoSnap Hub - Politique de Confidentialité',
-    de:'VideoSnap Hub - Datenschutzrichtlinie',
-    ja:'VideoSnap Hub - プライバシーポリシー',
-    ko:'VideoSnap Hub - 개인정보 처리방침',
-    ar:'VideoSnap Hub - سياسة الخصوصية',
-    'tr-rTR':'VideoSnap Hub - Gizlilik Politikası',
-    'ur-rPK':'VideoSnap Hub - رازداری کی پالیسی',
-    'hi-rIN':'VideoSnap Hub - गोपनीयता नीति',
-    'pt-rBR':'VideoSnap Hub - Política de Privacidade',
-};
-    // TODO: 上次更新文本多語字典，與標題同步切換
-const updateMap = {
-    en: 'Last Updated: November 29, 2025',
-    zh: '上次更新于：2025 年 11 月 29 日',
-    'zh-TW': '上次更新於：2025 年 11 月 29 日',
-    fr: 'Dernière mise à jour : 29 novembre 2025',
-    de: 'Zuletzt aktualisiert am: 29. November 2025',
-    ja: '最終更新日：2025年11月29日',
-    ko: '마지막 업데이트: 2025년 11월 29일',
-    ar: 'آخر تحديث: 29 نوفمبر 2025',
-    'tr-rTR': 'Son Güncelleme: 29 Kasım 2025',
-    'ur-rPK': 'آخری تازہ کاری: 29 نومبر 2025',
-    'hi-rIN': 'आखिरी अपडेट: 29 नवंबर 2025',
-    'pt-rBR': 'Última atualização: 29 de novembro de 2025',
-};
-     // ====== 语言切换函数（使用 textContent + fallback） ======
-    function updateLanguage(lang) {
-        // LOGO 下标题
-        const titleEl = document.getElementById('policy-title');
-        titleEl.textContent = titleMap[lang] || 'VideoSnap Hub - Privacy Policy';
-        
-        // 同步更新页面 title
-        document.title = titleEl.textContent;
+            en:'VideoSnap Hub - Privacy Policy',
+            zh:'速去印 - 隐私政策',
+            'zh-TW':'速去印 - 隱私權政策',
+            fr:'VideoSnap Hub - Politique de Confidentialité',
+            de:'VideoSnap Hub - Datenschutzrichtlinie',
+            ja:'VideoSnap Hub - プライバシーポリシー',
+            ko:'VideoSnap Hub - 개인정보 처리방침',
+            ar:'VideoSnap Hub - سياسة الخصوصية',
+            'tr-rTR':'VideoSnap Hub - Gizlilik Politikası',
+            'ur-rPK':'VideoSnap Hub - رازداری کی پالیسی',
+            'hi-rIN':'VideoSnap Hub - गोपनीयता नीति',
+            'pt-rBR':'VideoSnap Hub - Política de Privacidade',
+        };
 
-        // LOGO 下“上次更新于”
+        const updateMap = {
+            en: 'Last Updated: November 29, 2025',
+            zh: '上次更新于：2025 年 11 月 29 日',
+            'zh-TW': '上次更新於：2025 年 11 月 29 日',
+            fr: 'Dernière mise à jour : 29 novembre 2025',
+            de: 'Zuletzt aktualisiert am: 29. November 2025',
+            ja: '最終更新日：2025年11月29日',
+            ko: '마지막 업데이트: 2025년 11월 29일',
+            ar: 'آخر تحديث: 29 نوفمبر 2025',
+            'tr-rTR': 'Son Güncelleme: 29 Kasım 2025',
+            'ur-rPK': 'آخری تازہ کاری: 29 نومبر 2025',
+            'hi-rIN': 'आखिरी अपडेट: 29 नवंबर 2025',
+            'pt-rBR': 'Última atualização: 29 de novembro de 2025',
+        };
+
+        // 更新 LOGO下标题
+        const titleEl = document.getElementById('policy-title');
+        if(titleEl) titleEl.textContent = titleMap[lang] || 'VideoSnap Hub - Privacy Policy';
+
+        // 更新页面 title
+        document.title = titleEl ? titleEl.textContent : 'VideoSnap Hub - Privacy Policy';
+
+        // 更新 LOGO下“上次更新于”
         const updateEl = document.getElementById('last-updated-text');
-        updateEl.textContent = updateMap[lang] || 'Last Updated: November 29, 2025';
-    }
+        if(updateEl) updateEl.textContent = updateMap[lang] || 'Last Updated: November 29, 2025';
 
         // 自动生成水印
-        generateWatermarks(active);
+        if(active) generateWatermarks(active);
         updateWatermarkScroll();
 
-        // 自动收起下拉
-        langOptions.style.display='none';
+        // 自动收起语言下拉
+        langOptions.style.display = 'none';
     }
 
-     // ====== 页面初始化时默认加载语言 ======
-    document.addEventListener("DOMContentLoaded", function () {
-        const userLang = 'en'; // 可以改成自动识别或用户选择
-        updateLanguage(userLang);
-    });
+    // ===== 初始化默认语言 =====
+    switchLang('en'); // 默认英文
+});
 </script>
+
 </body>
 </html>
+
 
 
 
