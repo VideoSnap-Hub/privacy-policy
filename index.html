@@ -302,8 +302,88 @@ section.active { display:block; }
     <h3>8. Retention, Modification, and Deletion of Personal Data</h3>
     <p>You may access the information we hold about you and request updates, corrections, or deletion. Deleting information may affect future use of the services. Some information may be retained to complete transactions or comply with legal requirements.</p>
 
-    <h3>9. Permissions</h3>
-    <p>All permissions (51 in total) are listed in a table and explained to users according to their purpose.</p>
+   <h3>9. Permissions</h3>
+<style>
+    .perm-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        font-size: 12px;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .perm-table th {
+        text-align: center;
+        background: #f2f2f2;
+        padding: 6px;
+        white-space: nowrap;
+    }
+    .perm-table td {
+        padding: 6px;
+    }
+</style>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>Permission Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>Access advertising service identifier</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>Access advertising attribution info</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>Access advertising topics info</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>Access location in media files</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>Access network state</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Access Wi-Fi state</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>Receive system close dialogs broadcast</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>Expand status bar</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>Foreground service</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>Foreground service for media playback</td></tr>
+        <tr><td>INTERNET</td><td>Access internet</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>Send notifications</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>Read app badge count</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>Read external storage</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>Read audio files</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>Read image files</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>Read video files</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>Read user-selected visual media</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Receive broadcast on boot completed</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>Receive launch-related broadcasts</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>Request to ignore battery optimizations</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>Set wallpaper</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>Show system alert window</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>Use biometric authentication</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>Use fingerprint</td></tr>
+        <tr><td>VIBRATE</td><td>Control vibration</td></tr>
+        <tr><td>WAKE_LOCK</td><td>Keep device awake</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>Write external storage</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>Update launcher badge count</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>In-app billing</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>Check app license</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>Receive Google push messages</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>Access install referrer service</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>Access advertising ID</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>Read HTC launcher settings</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>Update HTC shortcuts</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Change Huawei badge</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Read Huawei settings</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Write Huawei settings</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>Update launcher badge</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>Read OPPO settings</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>Write OPPO settings</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>Write Samsung usage survey</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>Read Samsung badge</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>Write Samsung badge</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Sony badge broadcast</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Insert Sony badge</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>Dynamic broadcast receiver (not exported)</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>Receive push messages</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>Read badge count</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>Write badge count</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. Contact Information</h3>
     <p>
@@ -376,7 +456,68 @@ section.active { display:block; }
     <p>保有情報へのアクセス、更新、訂正、削除をリクエストできます。削除すると将来のサービス利用に影響する場合があります。一部の情報は取引完了や法令遵守のために保持されます。</p>
 
     <h3>9. 権限の説明</h3>
-    <p>全ての権限（合計51項目）は表形式で記載され、目的ごとにユーザーに説明されます。</p>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>権限名</th>
+            <th>説明</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>広告サービス識別子にアクセス</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>広告の帰属情報にアクセス</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>広告関連トピック情報にアクセス</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>メディアファイルの位置情報にアクセス</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>ネットワーク状態にアクセス</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Wi-Fi状態にアクセス</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>システム終了ダイアログブロードキャストを受信</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>ステータスバーを展開</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>フォアグラウンドサービス</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>メディア再生用フォアグラウンドサービス</td></tr>
+        <tr><td>INTERNET</td><td>インターネットにアクセス</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>通知を送信</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>アプリバッジの数を読み取る</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>外部ストレージを読み取る</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>音声ファイルを読み取る</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>画像ファイルを読み取る</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>動画ファイルを読み取る</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>ユーザー選択の視覚メディアを読み取る</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>起動完了時にブロードキャストを受信</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>起動関連のブロードキャストを受信</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>バッテリー最適化を無視する要求</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>壁紙を設定</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>システム警告ウィンドウを表示</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>生体認証を使用</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>指紋認証を使用</td></tr>
+        <tr><td>VIBRATE</td><td>振動を制御</td></tr>
+        <tr><td>WAKE_LOCK</td><td>デバイスのスリープを防ぐ</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>外部ストレージに書き込む</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>ランチャーバッジ数を更新</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>アプリ内課金</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>アプリライセンスを確認</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>Googleプッシュメッセージを受信</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>インストール参照サービスにアクセス</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>広告IDにアクセス</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>HTCランチャー設定を読み取る</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>HTCショートカットを更新</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Huaweiバッジを変更</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Huawei設定を読み取る</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Huawei設定を書き込む</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>ランチャーバッジを更新</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>OPPO設定を読み取る</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>OPPO設定を書き込む</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>Samsung使用状況調査を記録</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>Samsungバッジを読み取る</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>Samsungバッジを書き込む</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Sonyバッジのブロードキャスト</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Sonyバッジを挿入</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>動的ブロードキャスト受信（未エクスポート）</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>プッシュメッセージを受信</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>バッジ数を読み取る</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>バッジ数を書き込む</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. お問い合わせ先</h3>
     <p>
@@ -449,7 +590,68 @@ section.active { display:block; }
     <p>Sie können auf die von uns gespeicherten Informationen zugreifen und Aktualisierungen, Korrekturen oder Löschungen anfordern. Das Löschen von Informationen kann die zukünftige Nutzung der Dienste beeinträchtigen. Bestimmte Informationen werden zur Abwicklung von Transaktionen oder zur Einhaltung gesetzlicher Vorschriften aufbewahrt.</p>
 
     <h3>9. Berechtigungen</h3>
-    <p>Alle Berechtigungen (insgesamt 51) werden in einer Tabelle aufgelistet und den Benutzern nach Zweck erklärt.</p>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>Berechtigungsname</th>
+            <th>Beschreibung</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>Zugriff auf Werbedienstkennung</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>Zugriff auf Werbezuschreibungsinformationen</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>Zugriff auf werberelevante Themeninformationen</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>Zugriff auf den Standort von Mediendateien</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>Zugriff auf Netzwerkstatus</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Zugriff auf Wi-Fi-Status</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>Empfangen von Broadcasts zum Schließen von Systemdialogen</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>Statusleiste erweitern</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>Foreground-Dienst</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>Foreground-Dienst für Medienwiedergabe</td></tr>
+        <tr><td>INTERNET</td><td>Zugriff auf das Internet</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>Benachrichtigungen senden</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>App-Badge-Zähler lesen</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>Externen Speicher lesen</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>Audio-Dateien lesen</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>Bilder lesen</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>Videos lesen</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>Vom Benutzer ausgewählte visuelle Medien lesen</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Broadcast nach Systemstart empfangen</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>Start-Broadcasts empfangen</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>Anforderung zur Ignorierung von Batterieoptimierungen</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>Wallpaper setzen</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>Systemwarnfenster anzeigen</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>Biometrische Authentifizierung verwenden</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>Fingerabdruck verwenden</td></tr>
+        <tr><td>VIBRATE</td><td>Vibration steuern</td></tr>
+        <tr><td>WAKE_LOCK</td><td>Gerät wach halten</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>In externen Speicher schreiben</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>Launcher-Zähler aktualisieren</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>In-App-Käufe</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>App-Lizenz prüfen</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>Google Push-Nachrichten empfangen</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>Installationsquellenservice binden</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>Werbe-ID abrufen</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>HTC-Launcher-Einstellungen lesen</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>HTC-Shortcut aktualisieren</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Huawei-Badge ändern</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Huawei-Einstellungen lesen</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Huawei-Einstellungen schreiben</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>Launcher-Badge aktualisieren</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>OPPO-Einstellungen lesen</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>OPPO-Einstellungen schreiben</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>Samsung Feature-Nutzungsumfrage schreiben</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>Samsung-Badge lesen</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>Samsung-Badge schreiben</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Sony-Badge-Broadcast</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Sony-Badge einfügen</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>Dynamischer Broadcast-Empfänger (nicht exportiert)</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>Push-Nachrichten empfangen</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>Badge-Zähler lesen</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>Badge-Zähler schreiben</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. Kontaktinformationen</h3>
   <p>
@@ -520,8 +722,69 @@ section.active { display:block; }
     <h3>8. 개인정보 보관, 수정 및 삭제</h3>
     <p>보유 정보를 열람하고 업데이트, 수정 또는 삭제를 요청할 수 있습니다. 정보를 삭제하면 향후 서비스 이용에 영향을 줄 수 있으며, 일부 정보는 거래 완료 및 법적 요구 사항 준수를 위해 보관됩니다.</p>
 
-    <h3>9. 권한</h3>
-    <p>모든 권한(총 51개)은 표 형식으로 나열되며 목적에 따라 사용자에게 설명됩니다.</p>
+    <h3>9. 권한 설명</h3>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>권한 이름</th>
+            <th>권한 설명</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>광고 서비스 ID 접근</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>광고 귀속 정보 접근</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>광고 관련 주제 정보 접근</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>미디어 파일 위치 접근</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>네트워크 상태 접근</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Wi-Fi 상태 접근</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>시스템 닫기 다이얼로그 방송 수신</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>상태바 확장</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>포그라운드 서비스</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>미디어 재생 포그라운드 서비스</td></tr>
+        <tr><td>INTERNET</td><td>인터넷 접근</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>알림 전송</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>앱 배지 수 읽기</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>외부 저장소 읽기</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>오디오 파일 읽기</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>이미지 파일 읽기</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>비디오 파일 읽기</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>사용자가 선택한 시각 미디어 읽기</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>부팅 완료 후 방송 수신</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>런치 방송 수신</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>배터리 최적화 무시 요청</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>배경화면 설정</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>시스템 경고창 표시</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>생체 인식 사용</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>지문 사용</td></tr>
+        <tr><td>VIBRATE</td><td>진동 제어</td></tr>
+        <tr><td>WAKE_LOCK</td><td>장치 깨어있게 유지</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>외부 저장소 쓰기</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>런처 카운트 업데이트</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>앱 내 결제 권한</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>앱 라이선스 확인</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>구글 푸시 메시지 수신</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>설치 출처 서비스 바인딩</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>광고 ID 접근</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>HTC 런처 설정 읽기</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>HTC 단축키 업데이트</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Huawei 배지 변경</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Huawei 설정 읽기</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Huawei 설정 쓰기</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>런처 배지 업데이트</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>OPPO 설정 읽기</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>OPPO 설정 쓰기</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>삼성 기능 사용 조사 쓰기</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>삼성 배지 읽기</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>삼성 배지 쓰기</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Sony 배지 방송</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Sony 배지 삽입</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>동적 방송 수신기 (미내보내기)</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>푸시 메시지 수신</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>배지 카운트 읽기</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>배지 카운트 쓰기</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. 연락처</h3>
     <p>
@@ -594,7 +857,68 @@ section.active { display:block; }
     <p>您可存取我們持有的您的資訊，並可請求更新、更正或刪除。刪除資訊可能影響未來服務使用。部分資訊需保留以完成交易或符合法律要求。</p>
 
     <h3>9. 權限說明</h3>
-    <p>所有權限（共 51 項）將以表格列出，並向使用者說明用途。</p>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>權限名稱</th>
+            <th>權限說明</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>存取廣告服務識別碼</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>存取廣告歸因資訊</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>存取廣告相關主題資訊</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>存取媒體檔案位置</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>存取網路狀態</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>存取Wi-Fi狀態</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>接收系統關閉對話框廣播</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>展開狀態列</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>前景服務</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>前景媒體播放服務</td></tr>
+        <tr><td>INTERNET</td><td>存取網際網路</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>發送通知</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>讀取應用徽章計數</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>讀取外部儲存</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>讀取音訊檔案</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>讀取圖片檔案</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>讀取影片檔案</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>讀取使用者選擇的視覺媒體</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>開機完成後接收廣播</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>接收啟動廣播</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>請求忽略電池優化</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>設定桌布</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>顯示系統警告視窗</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>使用生物辨識</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>使用指紋</td></tr>
+        <tr><td>VIBRATE</td><td>振動控制</td></tr>
+        <tr><td>WAKE_LOCK</td><td>保持裝置喚醒</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>寫入外部儲存</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>更新啟動器計數</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>應用內購買權限</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>檢查應用授權</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>接收 Google 推播訊息</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>綁定取得安裝來源服務</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>存取廣告ID</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>讀取 HTC 啟動器設定</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>更新 HTC 快捷方式</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>修改華為徽章</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>讀取華為設定</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>寫入華為設定</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>更新啟動器徽章</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>讀取 OPPO 設定</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>寫入 OPPO 設定</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>三星功能使用調查寫入</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>讀取三星徽章</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>寫入三星徽章</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>索尼徽章廣播</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>索尼插入徽章</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>動態廣播接收（未導出）</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>接收推播訊息權限</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>讀取徽章計數</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>寫入徽章計數</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. 聯絡方式</h3>
    <p>
@@ -666,8 +990,69 @@ section.active { display:block; }
     <h3>8. Conservation, modification et suppression des données personnelles</h3>
     <p>Vous pouvez accéder aux informations que nous détenons et demander des mises à jour, corrections ou suppressions. La suppression peut affecter l’utilisation future des services. Certaines informations peuvent être conservées pour finaliser les transactions ou se conformer aux obligations légales.</p>
 
-    <h3>9. Autorisations</h3>
-    <p>Toutes les autorisations (51 au total) sont listées dans un tableau et expliquées à l’utilisateur selon leur objectif.</p>
+    <h3>9. Explication des permissions</h3>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>Nom de la permission</th>
+            <th>Explication</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>Accéder à l'identifiant du service publicitaire</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>Accéder aux informations d'attribution publicitaire</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>Accéder aux sujets liés à la publicité</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>Accéder à la localisation des fichiers multimédias</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>Accéder à l'état du réseau</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Accéder à l'état du Wi-Fi</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>Recevoir les diffusions de fermeture des dialogues système</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>Déployer la barre d'état</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>Service au premier plan</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>Service au premier plan pour lecture multimédia</td></tr>
+        <tr><td>INTERNET</td><td>Accéder à Internet</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>Envoyer des notifications</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>Lire le compteur de badges de l'application</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>Lire le stockage externe</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>Lire les fichiers audio</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>Lire les fichiers image</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>Lire les fichiers vidéo</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>Lire les médias visuels sélectionnés par l'utilisateur</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Recevoir la diffusion au démarrage terminé</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>Recevoir les diffusions de lancement</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>Demander à ignorer les optimisations de batterie</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>Définir le fond d'écran</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>Afficher une fenêtre d'alerte système</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>Utiliser la biométrie</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>Utiliser l'empreinte digitale</td></tr>
+        <tr><td>VIBRATE</td><td>Contrôle de vibration</td></tr>
+        <tr><td>WAKE_LOCK</td><td>Maintenir l'appareil éveillé</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>Écrire dans le stockage externe</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>Mettre à jour le compteur du lanceur</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>Permission d'achat intégré</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>Vérifier la licence de l'application</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>Recevoir les notifications push Google</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>Lier le service d'obtention de la source d'installation</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>Accéder à l'ID publicitaire</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>Lire les paramètres du lanceur HTC</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>Mettre à jour les raccourcis HTC</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Modifier le badge Huawei</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Lire les paramètres Huawei</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Écrire les paramètres Huawei</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>Mettre à jour le badge du lanceur</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>Lire les paramètres OPPO</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>Écrire les paramètres OPPO</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>Écrire l'enquête sur l'utilisation des fonctionnalités Samsung</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>Lire le badge Samsung</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>Écrire le badge Samsung</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Diffusion du badge Sony</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Insertion du badge Sony</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>Récepteur dynamique non exporté</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>Recevoir la permission de message push</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>Lire le compteur de badges</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>Écrire le compteur de badges</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. Contact</h3>
 <p>
@@ -740,8 +1125,69 @@ section.active { display:block; }
     <h3>8. الاحتفاظ وتعديل وحذف البيانات الشخصية</h3>
     <p>يمكنك الوصول إلى المعلومات التي نحتفظ بها وطلب تحديثها أو تعديلها أو حذفها. قد يؤثر الحذف على استخدام الخدمات مستقبلاً. بعض المعلومات قد تُحتفظ بها لإتمام المعاملات أو الامتثال للقوانين.</p>
 
-    <h3>9. الأذونات</h3>
-    <p>جميع الأذونات (51 إجمالاً) مدرجة في جدول ويتم شرحها للمستخدم حسب الغرض.</p>
+    <h3>9. شرح الأذونات</h3>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>اسم الإذن</th>
+            <th>شرح الإذن</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>الوصول إلى معرف خدمة الإعلانات</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>الوصول إلى معلومات نسبة الإعلانات</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>الوصول إلى موضوعات الإعلانات</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>الوصول إلى موقع الملفات الإعلامية</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>الوصول إلى حالة الشبكة</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>الوصول إلى حالة الواي فاي</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>تلقي بث إغلاق مربعات حوار النظام</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>توسيع شريط الحالة</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>خدمة في المقدمة</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>خدمة المقدمة لتشغيل الوسائط</td></tr>
+        <tr><td>INTERNET</td><td>الوصول إلى الإنترنت</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>إرسال الإشعارات</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>قراءة عدد شارات التطبيق</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>قراءة التخزين الخارجي</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>قراءة ملفات الصوت</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>قراءة ملفات الصور</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>قراءة ملفات الفيديو</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>قراءة الوسائط البصرية المختارة من المستخدم</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>تلقي البث بعد إتمام التشغيل</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>تلقي بث التشغيل</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>طلب تجاهل تحسينات البطارية</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>تعيين خلفية الشاشة</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>عرض نافذة تنبيه النظام</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>استخدام القياسات الحيوية</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>استخدام بصمة الإصبع</td></tr>
+        <tr><td>VIBRATE</td><td>التحكم بالاهتزاز</td></tr>
+        <tr><td>WAKE_LOCK</td><td>الحفاظ على الجهاز مستيقظًا</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>الكتابة على التخزين الخارجي</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>تحديث عداد المشغل</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>إذن الشراء داخل التطبيق</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>التحقق من ترخيص التطبيق</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>تلقي إشعارات Google الدفعية</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>ربط خدمة الحصول على مصدر التثبيت</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>الوصول إلى معرف الإعلان</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>قراءة إعدادات مشغل HTC</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>تحديث اختصارات HTC</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>تغيير شارة Huawei</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>قراءة إعدادات Huawei</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>كتابة إعدادات Huawei</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>تحديث شارة المشغل</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>قراءة إعدادات OPPO</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>كتابة إعدادات OPPO</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>كتابة استبيان استخدام ميزات Samsung</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>قراءة شارة Samsung</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>كتابة شارة Samsung</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>بث شارة Sony</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>إدراج شارة Sony</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>إذن استقبال بث ديناميكي غير مُصدر</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>تلقي إذن الرسائل الدفعية</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>قراءة عدد الشارات</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>كتابة عدد الشارات</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. معلومات الاتصال</h3>
     <p>
@@ -812,8 +1258,69 @@ section.active { display:block; }
     <h3>8. व्यक्तिगत डेटा का भंडारण, संशोधन और हटाना</h3>
     <p>आप हमारे पास रखी गई जानकारी तक पहुँच सकते हैं और अपडेट, सुधार या हटाने का अनुरोध कर सकते हैं। जानकारी हटाने से भविष्य में सेवा उपयोग प्रभावित हो सकता है। कुछ जानकारी लेन-देन पूरा करने या कानूनी आवश्यकताओं के लिए रखी जा सकती है।</p>
 
-    <h3>9. अनुमतियाँ</h3>
-    <p>सभी अनुमतियाँ (कुल 51) तालिका में सूचीबद्ध हैं और उपयोगकर्ता को उद्देश्य के अनुसार समझाई जाती हैं।</p>
+    <h3>9. अनुमतियों का विवरण</h3>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>अनुमति का नाम</th>
+            <th>अनुमति का विवरण</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>विज्ञापन सेवा पहचान तक पहुँच</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>विज्ञापन श्रेय जानकारी तक पहुँच</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>विज्ञापन संबंधित विषयों तक पहुँच</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>मीडिया फ़ाइलों का स्थान एक्सेस करना</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>नेटवर्क स्थिति तक पहुँच</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Wi-Fi स्थिति तक पहुँच</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>सिस्टम बंद संवाद प्रसारण प्राप्त करना</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>स्टेटस बार का विस्तार करें</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>फ़ोरग्राउंड सेवा</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>मीडिया प्लेबैक के लिए फ़ोरग्राउंड सेवा</td></tr>
+        <tr><td>INTERNET</td><td>इंटरनेट तक पहुँच</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>सूचनाएँ भेजें</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>ऐप बैज गिनती पढ़ें</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>बाहरी स्टोरेज पढ़ें</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>ऑडियो फ़ाइलें पढ़ें</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>इमेज फ़ाइलें पढ़ें</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>वीडियो फ़ाइलें पढ़ें</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>उपयोगकर्ता द्वारा चयनित दृश्य मीडिया पढ़ें</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>बूट पूरा होने पर प्रसारण प्राप्त करें</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>लॉन्च प्रसारण प्राप्त करें</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>बैटरी ऑप्टिमाइजेशन को अनदेखा करने का अनुरोध करें</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>वॉलपेपर सेट करें</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>सिस्टम चेतावनी विंडो दिखाएँ</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>बायोमेट्रिक उपयोग करें</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>फिंगरप्रिंट उपयोग करें</td></tr>
+        <tr><td>VIBRATE</td><td>वाइब्रेट नियंत्रण</td></tr>
+        <tr><td>WAKE_LOCK</td><td>डिवाइस जागृत रखें</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>बाहरी स्टोरेज में लिखें</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>लॉन्चर काउंट अपडेट करें</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>इन-ऐप खरीदारी अनुमति</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>ऐप लाइसेंस जांचें</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>Google पुश संदेश प्राप्त करें</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>इंस्टॉल स्रोत सेवा बाइंड करें</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>विज्ञापन ID तक पहुँच</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>HTC लॉन्चर सेटिंग पढ़ें</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>HTC शॉर्टकट अपडेट करें</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Huawei बैज बदलें</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Huawei सेटिंग्स पढ़ें</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Huawei सेटिंग्स लिखें</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>बैज अपडेट करें</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>OPPO सेटिंग्स पढ़ें</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>OPPO सेटिंग्स लिखें</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>Samsung फीचर उपयोग सर्वे लिखें</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>Samsung बैज पढ़ें</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>Samsung बैज लिखें</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Sony बैज प्रसारण</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Sony बैज डालें</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>डायनामिक रिसीवर (निर्यात नहीं किया) अनुमति</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>पुश संदेश अनुमति प्राप्त करें</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>बैज गिनती पढ़ें</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>बैज गिनती लिखें</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. संपर्क जानकारी</h3>
  <p>
@@ -885,8 +1392,69 @@ section.active { display:block; }
     <h3>8. Retenção, modificação e exclusão de dados pessoais</h3>
     <p>Você pode acessar as informações que possuímos e solicitar atualizações, correções ou exclusões. A exclusão pode afetar o uso futuro dos serviços. Algumas informações podem ser mantidas para concluir transações ou cumprir obrigações legais.</p>
 
-    <h3>9. Permissões</h3>
-    <p>Todas as permissões (51 no total) são listadas em uma tabela e explicadas ao usuário conforme o propósito.</p>
+    <h3>9. Descrição das Permissões</h3>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>Nome da Permissão</th>
+            <th>Descrição da Permissão</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>Acessa o identificador de serviço de anúncios</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>Acessa informações de atribuição de anúncios</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>Acessa tópicos relacionados a anúncios</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>Acessa a localização de arquivos de mídia</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>Acessa o estado da rede</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Acessa o estado do Wi-Fi</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>Recebe broadcasts de fechamento de diálogo do sistema</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>Expande a barra de status</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>Serviço em primeiro plano</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>Serviço em primeiro plano para reprodução de mídia</td></tr>
+        <tr><td>INTERNET</td><td>Acessa a internet</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>Envia notificações</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>Lê a contagem do badge do app</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>Lê o armazenamento externo</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>Lê arquivos de áudio</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>Lê arquivos de imagem</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>Lê arquivos de vídeo</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>Lê mídias visuais selecionadas pelo usuário</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Recebe broadcast após boot completo</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>Recebe broadcasts de inicialização</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>Solicita ignorar otimizações de bateria</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>Define papel de parede</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>Exibe janela de alerta do sistema</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>Usa biometria</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>Usa impressão digital</td></tr>
+        <tr><td>VIBRATE</td><td>Controle de vibração</td></tr>
+        <tr><td>WAKE_LOCK</td><td>Mantém o dispositivo acordado</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>Escreve no armazenamento externo</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>Atualiza contagem do launcher</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>Permissão de compras no app</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>Verifica licença do app</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>Recebe mensagens push do Google</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>Conecta ao serviço de origem de instalação</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>Acessa ID de anúncios</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>Lê configurações do launcher HTC</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>Atualiza atalhos do HTC</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Modifica badge da Huawei</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Lê configurações da Huawei</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Escreve configurações da Huawei</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>Atualiza badges</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>Lê configurações da OPPO</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>Escreve configurações da OPPO</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>Grava pesquisa de uso de recursos Samsung</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>Lê badge da Samsung</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>Escreve badge da Samsung</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Transmissão de badge da Sony</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Insere badge da Sony</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>Permissão de receptor dinâmico (não exportado)</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>Recebe permissão de push</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>Lê contagem de badges</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>Escreve contagem de badges</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. Contato</h3>
     <p>
@@ -958,8 +1526,69 @@ section.active { display:block; }
     <h3>8. ذاتی ڈیٹا کی حفاظت، ترمیم اور حذف</h3>
     <p>آپ ہماری معلومات تک رسائی حاصل کر سکتے ہیں اور اپڈیٹ، اصلاح یا حذف کی درخواست کر سکتے ہیں۔ حذف مستقبل میں سروس کے استعمال کو متاثر کر سکتا ہے۔ کچھ معلومات ٹرانزیکشن مکمل کرنے یا قانونی ضروریات کے لیے رکھی جا سکتی ہیں۔</p>
 
-    <h3>9. اجازتیں</h3>
-    <p>تمام اجازتیں (کل 51) ایک جدول میں درج ہیں اور صارف کو مقصد کے مطابق وضاحت کی جاتی ہیں۔</p>
+    <h3>9. اجازتوں کی وضاحت</h3>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>اجازت کا نام</th>
+            <th>اجازت کی وضاحت</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>اشتہاری سروس کا شناختی نمبر تک رسائی</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>اشتہاری نسبت کی معلومات تک رسائی</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>اشتہاری متعلقہ موضوعات تک رسائی</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>میڈیا فائلز کے مقام تک رسائی</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>نیٹ ورک کی حالت تک رسائی</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>وائی فائی کی حالت تک رسائی</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>سسٹم ڈائیلاگ بند کرنے کے براڈکاسٹ وصول کرنا</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>اسٹیٹس بار بڑھانا</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>فارگراؤنڈ سروس</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>میڈیا پلے بیک کے لیے فارگراؤنڈ سروس</td></tr>
+        <tr><td>INTERNET</td><td>انٹرنیٹ تک رسائی</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>نوٹیفیکیشن بھیجنا</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>ایپ بیج کی تعداد پڑھنا</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>بیرونی اسٹوریج پڑھنا</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>آڈیو فائلز پڑھنا</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>تصاویر پڑھنا</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>ویڈیو فائلز پڑھنا</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>صارف منتخب بصری میڈیا پڑھنا</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>بوٹ مکمل ہونے پر براڈکاسٹ وصول کرنا</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>لانچ براڈکاسٹ وصول کرنا</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>بیٹری آپٹیمائزیشن کو نظر انداز کرنے کی درخواست</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>وال پیپر سیٹ کرنا</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>سسٹم الرٹ ونڈو دکھانا</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>بایومیٹرک استعمال کرنا</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>فنگر پرنٹ استعمال کرنا</td></tr>
+        <tr><td>VIBRATE</td><td>وائبریشن کنٹرول</td></tr>
+        <tr><td>WAKE_LOCK</td><td>ڈیوائس کو جاگتے رکھنا</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>بیرونی اسٹوریج میں لکھنا</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>لانچر کاؤنٹ اپ ڈیٹ کرنا</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>ان ایپ خریداری کی اجازت</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>ایپ لائسنس چیک کرنا</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>گوگل پش پیغامات وصول کرنا</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>انسٹال سورس سروس سے جڑنا</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>اشتہاری آئی ڈی تک رسائی</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>ایچ ٹی سی لانچر سیٹنگز پڑھنا</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>ایچ ٹی سی شارٹ کٹ اپ ڈیٹ کرنا</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>ہواوے بیج تبدیل کرنا</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>ہواوے سیٹنگز پڑھنا</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>ہواوے سیٹنگز لکھنا</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>بیج اپ ڈیٹ کرنا</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>اوپو سیٹنگز پڑھنا</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>اوپو سیٹنگز لکھنا</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>سام سنگ فیچر سروے لکھنا</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>سام سنگ بیج پڑھنا</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>سام سنگ بیج لکھنا</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>سونی بیج براڈکاسٹ</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>سونی بیج داخل کرنا</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>ڈائنامک رسیور اجازت (غیر برآمد شدہ)</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>پش پیغامات وصول کرنے کی اجازت</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>بیج کاؤنٹ پڑھنا</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>بیج کاؤنٹ لکھنا</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. رابطہ</h3>
 <p>
@@ -1031,8 +1660,69 @@ section.active { display:block; }
     <h3>8. Kişisel Verilerin Saklanması, Düzenlenmesi ve Silinmesi</h3>
     <p>Bilgilerinize erişebilir, güncelleme, düzeltme veya silme talebinde bulunabilirsiniz. Silme işlemi gelecekte hizmet kullanımını etkileyebilir. Bazı bilgiler işlem tamamlanana veya yasal gereklilikler yerine getirilene kadar saklanabilir.</p>
 
-    <h3>9. İzinler</h3>
-    <p>Tüm izinler (toplam 51) bir tabloda listelenir ve kullanıcıya amaçları doğrultusunda açıklanır.</p>
+    <h3>9. İzin Açıklamaları</h3>
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>İzin Adı</th>
+            <th>İzin Açıklaması</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>Reklam hizmeti kimlik bilgilerine erişim</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>Reklam atıf bilgilerine erişim</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>Reklamla ilgili konulara erişim</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>Medya dosyalarının konumuna erişim</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>Ağ durumuna erişim</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>Wi-Fi durumuna erişim</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>Sistem diyaloglarını kapatma yayını alma</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>Durum çubuğunu genişletme</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>Ön plan servisi</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>Medya oynatma için ön plan servisi</td></tr>
+        <tr><td>INTERNET</td><td>İnternete erişim</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>Bildirim gönderme</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>Uygulama rozeti sayısını okuma</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>Dış depolamayı okuma</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>Ses dosyalarını okuma</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>Resimleri okuma</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>Video dosyalarını okuma</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>Kullanıcının seçtiği görsel medyayı okuma</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Cihaz açıldıktan sonra yayın alma</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>Başlatma yayınlarını alma</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>Pil optimizasyonlarını yok sayma isteği</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>Duvar kağıdını ayarlama</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>Sistem uyarı penceresini gösterme</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>Biyometrik kullanımı</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>Parmak izi kullanımı</td></tr>
+        <tr><td>VIBRATE</td><td>Titreşim kontrolü</td></tr>
+        <tr><td>WAKE_LOCK</td><td>Cihazı uyandırma</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>Dış depolamaya yazma</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>Başlatıcı sayısını güncelleme</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>Uygulama içi satın alma izni</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>Uygulama lisansını kontrol etme</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>Google push mesajlarını alma</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>Kurulum kaynağı hizmetine bağlanma</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>Reklam kimliğine erişim</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>HTC başlatıcı ayarlarını okuma</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>HTC kısayollarını güncelleme</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>Huawei rozetini değiştirme</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>Huawei ayarlarını okuma</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>Huawei ayarlarını yazma</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>Rozeti güncelleme</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>Oppo ayarlarını okuma</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>Oppo ayarlarını yazma</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>Samsung kullanım anketini yazma</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>Samsung rozeti okuma</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>Samsung rozeti yazma</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>Sony rozet yayını</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>Sony rozet ekleme</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>Dinamik alıcı izni (dışa aktarılmamış)</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>Push mesajlarını alma izni</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>Rozet sayısını okuma</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>Rozet sayısını yazma</td></tr>
+    </tbody>
+</table>
+
 
     <h3>10. İletişim</h3>
    <p>
@@ -1172,6 +1862,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
 
 
 
