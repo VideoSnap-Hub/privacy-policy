@@ -142,8 +142,22 @@ section.active { display:block; }
     <p>您可访问我们持有的您的信息，并可请求更新、更正或删除。删除信息可能影响未来服务使用。部分信息需保留以完成交易或符合法律要求。</p>
 
     <h3>9. 权限说明</h3>
-    <!-- TODO: 51项权限表格展示，去掉android.permission前缀 -->
-<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left;">
+<!-- TODO: 51项权限表格展示，去掉android.permission前缀 -->
+
+<style>
+/* 表头居中 + 不换行 */
+.permission-table th {
+    text-align: center;
+    white-space: nowrap;
+}
+/* 单元格不换行 */
+.permission-table td {
+    white-space: nowrap;
+}
+</style>
+
+<table class="permission-table" border="1" cellpadding="8" cellspacing="0" 
+       style="border-collapse: collapse; width: 100%; text-align: left;">
     <thead>
         <tr style="background-color: #f2f2f2;">
             <th>权限名称</th>
@@ -193,7 +207,7 @@ section.active { display:block; }
         <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>更新启动器徽章</td></tr>
         <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>读取OPPO启动器设置</td></tr>
         <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>写入OPPO启动器设置</td></tr>
-        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>写入三星应用使用情况调查</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>写入三星使用情况调查</td></tr>
         <tr><td>com.sec.android.provider.badge.permission.READ</td><td>读取三星徽章</td></tr>
         <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>写入三星徽章</td></tr>
         <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>索尼广播徽章</td></tr>
@@ -204,7 +218,6 @@ section.active { display:block; }
         <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>写入徽章计数</td></tr>
     </tbody>
 </table>
-
 
     <h3>10. 联络方式</h3>
     <p>
@@ -1150,6 +1163,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
 
 
 
