@@ -950,8 +950,19 @@ const updateMap = {
     'hi-rIN': 'आखिरी अपडेट: 29 नवंबर 2025',
     'pt-rBR': 'Última atualização: 29 de novembro de 2025',
 };
-        document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
-        document.title = document.getElementById('policy-title').textContent;
+     // ====== 语言切换函数（使用 textContent + fallback） ======
+    function updateLanguage(lang) {
+        // LOGO 下标题
+        const titleEl = document.getElementById('policy-title');
+        titleEl.textContent = titleMap[lang] || 'VideoSnap Hub - Privacy Policy';
+        
+        // 同步更新页面 title
+        document.title = titleEl.textContent;
+
+        // LOGO 下“上次更新于”
+        const updateEl = document.getElementById('last-updated-text');
+        updateEl.textContent = updateMap[lang] || 'Last Updated: November 29, 2025';
+    }
 
         // 自动生成水印
         generateWatermarks(active);
@@ -968,6 +979,7 @@ const updateMap = {
 
 </body>
 </html>
+
 
 
 
