@@ -972,13 +972,15 @@ const updateMap = {
         langOptions.style.display='none';
     }
 
-    // ===== 初始化默认语言 =====
-    switchLang('en');
-});
+     // ====== 页面初始化时默认加载语言 ======
+    document.addEventListener("DOMContentLoaded", function () {
+        const userLang = 'en'; // 可以改成自动识别或用户选择
+        updateLanguage(userLang);
+    });
 </script>
-
 </body>
 </html>
+
 
 
 
