@@ -55,8 +55,19 @@ section.active { display:block; }
 <!-- ===== Header: LOGO + 标题 ===== -->
 <header>
     <img src="ic_appicon_pro.png" alt="App Logo" class="logo">
+
     <h1 id="policy-title"></h1> <!-- LOGO下标题，随语言切换 -->
+
+    <!-- TODO: LOGO 下方的“上次更新于”日期显示（白色字体、居中、不换行、随语言切换） -->
+    <div id="last-updated-text"
+         style="text-align:center;
+                color:#ffffff;
+                font-size:16px;
+                white-space:nowrap;
+                margin-top:4px;">
+    </div>
 </header>
+
 
 <!-- ===== 语言选择下拉 ===== -->
 <nav>
@@ -85,12 +96,8 @@ section.active { display:block; }
 <main>
 <!-- 简体中文 -->
 <section id="zh">
-  <!-- TODO: 上次更新日期標題，置中、上方無間距、下方留白、自訂字體樣式 -->
-<h2 style="text-align: center; margin: 0 0 35px 0; font-size: 22px; color: #333;">
-    上次更新于：2025 年 11 月 29 日
-</h2>
-
-
+ 
+<h2 </h2>
     <p>速去印为使用不同设备的人们提供在线下载服务和软件。当您使用我们的服务（速去印 Android 应用、速去印 PC 应用、速去印 网站）时，您信任我们并提供您的信息。我们理解这是一项重大责任，并努力保护您的信息并让您掌控一切。本隐私权政策旨在帮助您了解我们收集的信息、收集信息的原因以及您如何管理和删除您的信息。如果您不同意本政策，请停止使用本服务。</p>
 
     <h3>1. 我们自动收集的信息</h3>
@@ -929,7 +936,21 @@ document.addEventListener("DOMContentLoaded", function(){
     'hi-rIN':'VideoSnap Hub - गोपनीयता नीति',
     'pt-rBR':'VideoSnap Hub - Política de Privacidade',
 };
-
+    // TODO: 上次更新文本多語字典，與標題同步切換
+const updateMap = {
+    en: 'Last Updated: November 29, 2025',
+    zh: '上次更新于：2025 年 11 月 29 日',
+    'zh-TW': '上次更新於：2025 年 11 月 29 日',
+    fr: 'Dernière mise à jour : 29 novembre 2025',
+    de: 'Zuletzt aktualisiert am: 29. November 2025',
+    ja: '最終更新日：2025年11月29日',
+    ko: '마지막 업데이트: 2025년 11월 29일',
+    ar: 'آخر تحديث: 29 نوفمبر 2025',
+    'tr-rTR': 'Son Güncelleme: 29 Kasım 2025',
+    'ur-rPK': 'آخری تازہ کاری: 29 نومبر 2025',
+    'hi-rIN': 'आखिरी अपडेट: 29 नवंबर 2025',
+    'pt-rBR': 'Última atualização: 29 de novembro de 2025',
+};
         document.getElementById('policy-title').textContent = titleMap[lang]||'VideoSnap Hub - Privacy Policy';
         document.title = document.getElementById('policy-title').textContent;
 
@@ -948,6 +969,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
 
 
 
