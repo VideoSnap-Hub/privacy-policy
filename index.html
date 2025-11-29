@@ -141,77 +141,92 @@ section.active { display:block; }
     <h3>8. 保留、修改和删除您的个人数据</h3>
     <p>您可访问我们持有的您的信息，并可请求更新、更正或删除。删除信息可能影响未来服务使用。部分信息需保留以完成交易或符合法律要求。</p>
 
-   <h3>9. 权限说明</h3>
+  <h3>9. 权限说明</h3>
 <!-- TODO: 51项权限表格展示，去掉android.permission前缀 -->
 
-<!-- 关键：增加一个可横向滑动的外容器 -->
-<div style="overflow-x: auto; width: 100%;">
+<style>
+    .perm-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; /* 关键：固定布局，强制压缩列宽 */
+        font-size: 12px;     /* 自适应小字体，确保不超屏 */
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .perm-table th {
+        text-align: center;
+        background: #f2f2f2;
+        padding: 6px;
+        white-space: nowrap; /* 表头不换行 */
+    }
+    .perm-table td {
+        padding: 6px;
+    }
+</style>
 
-    <table border="1" cellpadding="8" cellspacing="0" 
-           style="border-collapse: collapse; min-width: 600px; width: 100%;">
+<table border="1" class="perm-table">
+    <thead>
+        <tr>
+            <th>权限名称</th>
+            <th>权限说明</th>
+        </tr>
+    </thead>
 
-        <thead>
-            <tr style="background-color: #f2f2f2; text-align: center;">
-                <th style="text-align:center; white-space: nowrap;">权限名称</th>
-                <th style="text-align:center; white-space: nowrap;">权限说明</th>
-            </tr>
-        </thead>
+    <tbody>
+        <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>访问广告服务标识符</td></tr>
+        <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>访问广告归因信息</td></tr>
+        <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>访问广告相关主题信息</td></tr>
+        <tr><td>ACCESS_MEDIA_LOCATION</td><td>访问媒体文件的地理位置</td></tr>
+        <tr><td>ACCESS_NETWORK_STATE</td><td>访问网络状态</td></tr>
+        <tr><td>ACCESS_WIFI_STATE</td><td>访问Wi-Fi状态</td></tr>
+        <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>接收系统关闭对话框广播</td></tr>
+        <tr><td>EXPAND_STATUS_BAR</td><td>展开状态栏</td></tr>
+        <tr><td>FOREGROUND_SERVICE</td><td>前台服务</td></tr>
+        <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>前台媒体播放服务</td></tr>
+        <tr><td>INTERNET</td><td>访问互联网</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>发送通知</td></tr>
+        <tr><td>READ_APP_BADGE</td><td>读取应用徽章计数</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE</td><td>读取外部存储</td></tr>
+        <tr><td>READ_MEDIA_AUDIO</td><td>读取音频文件</td></tr>
+        <tr><td>READ_MEDIA_IMAGES</td><td>读取图片文件</td></tr>
+        <tr><td>READ_MEDIA_VIDEO</td><td>读取视频文件</td></tr>
+        <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>读取用户选择的视觉媒体</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>开机完成后接收广播</td></tr>
+        <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>接收启动广播</td></tr>
+        <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>请求忽略电池优化</td></tr>
+        <tr><td>SET_WALLPAPER</td><td>设置壁纸</td></tr>
+        <tr><td>SYSTEM_ALERT_WINDOW</td><td>显示系统警告窗口</td></tr>
+        <tr><td>USE_BIOMETRIC</td><td>使用生物识别</td></tr>
+        <tr><td>USE_FINGERPRINT</td><td>使用指纹</td></tr>
+        <tr><td>VIBRATE</td><td>振动控制</td></tr>
+        <tr><td>WAKE_LOCK</td><td>保持设备唤醒</td></tr>
+        <tr><td>WRITE_EXTERNAL_STORAGE</td><td>写入外部存储</td></tr>
+        <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>更新启动器计数</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>应用内购买权限</td></tr>
+        <tr><td>com.android.vending.CHECK_LICENSE</td><td>检查应用许可证</td></tr>
+        <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>接收Google推送消息</td></tr>
+        <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>获取安装来源服务</td></tr>
+        <tr><td>com.google.android.gms.permission.AD_ID</td><td>访问广告ID</td></tr>
+        <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>读取HTC启动器设置</td></tr>
+        <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>更新HTC快捷方式</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>修改华为徽章</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>读取华为设置</td></tr>
+        <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>写入华为设置</td></tr>
+        <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>更新徽章</td></tr>
+        <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>读取OPPO设置</td></tr>
+        <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>写入OPPO设置</td></tr>
+        <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>三星使用情况调查</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.READ</td><td>读取三星徽章</td></tr>
+        <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>写入三星徽章</td></tr>
+        <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>索尼徽章广播</td></tr>
+        <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>索尼插入徽章</td></tr>
+        <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>动态广播接收（未导出）</td></tr>
+        <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>接收推送消息权限</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>读取徽章计数</td></tr>
+        <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>写入徽章计数</td></tr>
+    </tbody>
+</table>
 
-        <tbody>
-            <tr><td>ACCESS_ADSERVICES_AD_ID</td><td>访问广告服务标识符</td></tr>
-            <tr><td>ACCESS_ADSERVICES_ATTRIBUTION</td><td>访问广告归因信息</td></tr>
-            <tr><td>ACCESS_ADSERVICES_TOPICS</td><td>访问广告相关主题信息</td></tr>
-            <tr><td>ACCESS_MEDIA_LOCATION</td><td>访问媒体文件的地理位置</td></tr>
-            <tr><td>ACCESS_NETWORK_STATE</td><td>访问网络状态</td></tr>
-            <tr><td>ACCESS_WIFI_STATE</td><td>访问Wi-Fi状态</td></tr>
-            <tr><td>BROADCAST_CLOSE_SYSTEM_DIALOGS</td><td>接收系统关闭对话框广播</td></tr>
-            <tr><td>EXPAND_STATUS_BAR</td><td>展开状态栏</td></tr>
-            <tr><td>FOREGROUND_SERVICE</td><td>前台服务</td></tr>
-            <tr><td>FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>前台服务用于媒体播放</td></tr>
-            <tr><td>INTERNET</td><td>访问互联网</td></tr>
-            <tr><td>POST_NOTIFICATIONS</td><td>发送通知</td></tr>
-            <tr><td>READ_APP_BADGE</td><td>读取应用徽章计数</td></tr>
-            <tr><td>READ_EXTERNAL_STORAGE</td><td>读取外部存储</td></tr>
-            <tr><td>READ_MEDIA_AUDIO</td><td>读取音频文件</td></tr>
-            <tr><td>READ_MEDIA_IMAGES</td><td>读取图片文件</td></tr>
-            <tr><td>READ_MEDIA_VIDEO</td><td>读取视频文件</td></tr>
-            <tr><td>READ_MEDIA_VISUAL_USER_SELECTED</td><td>读取用户选择的视觉媒体</td></tr>
-            <tr><td>RECEIVE_BOOT_COMPLETED</td><td>开机完成后接收广播</td></tr>
-            <tr><td>RECEIVE_LAUNCH_BROADCASTS</td><td>接收启动广播</td></tr>
-            <tr><td>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>请求忽略电池优化</td></tr>
-            <tr><td>SET_WALLPAPER</td><td>设置壁纸</td></tr>
-            <tr><td>SYSTEM_ALERT_WINDOW</td><td>显示系统警告窗口</td></tr>
-            <tr><td>USE_BIOMETRIC</td><td>使用生物识别</td></tr>
-            <tr><td>USE_FINGERPRINT</td><td>使用指纹</td></tr>
-            <tr><td>VIBRATE</td><td>振动控制</td></tr>
-            <tr><td>WAKE_LOCK</td><td>保持设备唤醒</td></tr>
-            <tr><td>WRITE_EXTERNAL_STORAGE</td><td>写入外部存储</td></tr>
-            <tr><td>com.anddoes.launcher.permission.UPDATE_COUNT</td><td>更新启动器计数</td></tr>
-            <tr><td>com.android.vending.BILLING</td><td>应用内购买权限</td></tr>
-            <tr><td>com.android.vending.CHECK_LICENSE</td><td>检查应用许可证</td></tr>
-            <tr><td>com.google.android.c2dm.permission.RECEIVE</td><td>接收Google消息推送</td></tr>
-            <tr><td>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</td><td>绑定获取安装来源服务</td></tr>
-            <tr><td>com.google.android.gms.permission.AD_ID</td><td>访问广告ID</td></tr>
-            <tr><td>com.htc.launcher.permission.READ_SETTINGS</td><td>读取HTC启动器设置</td></tr>
-            <tr><td>com.htc.launcher.permission.UPDATE_SHORTCUT</td><td>更新HTC启动器快捷方式</td></tr>
-            <tr><td>com.huawei.android.launcher.permission.CHANGE_BADGE</td><td>修改华为启动器徽章</td></tr>
-            <tr><td>com.huawei.android.launcher.permission.READ_SETTINGS</td><td>读取华为启动器设置</td></tr>
-            <tr><td>com.huawei.android.launcher.permission.WRITE_SETTINGS</td><td>写入华为启动器设置</td></tr>
-            <tr><td>com.majeur.launcher.permission.UPDATE_BADGE</td><td>更新启动器徽章</td></tr>
-            <tr><td>com.oppo.launcher.permission.READ_SETTINGS</td><td>读取OPPO启动器设置</td></tr>
-            <tr><td>com.oppo.launcher.permission.WRITE_SETTINGS</td><td>写入OPPO启动器设置</td></tr>
-            <tr><td>com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY</td><td>写入三星应用使用情况调查</td></tr>
-            <tr><td>com.sec.android.provider.badge.permission.READ</td><td>读取三星徽章</td></tr>
-            <tr><td>com.sec.android.provider.badge.permission.WRITE</td><td>写入三星徽章</td></tr>
-            <tr><td>com.sonyericsson.home.permission.BROADCAST_BADGE</td><td>索尼广播徽章</td></tr>
-            <tr><td>com.sonymobile.home.permission.PROVIDER_INSERT_BADGE</td><td>索尼插入徽章</td></tr>
-            <tr><td>com.weep.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</td><td>动态广播接收权限（未导出）</td></tr>
-            <tr><td>com.weep.mobile.permission.C2D_MESSAGE</td><td>接收推送消息权限</td></tr>
-            <tr><td>me.everything.badger.permission.BADGE_COUNT_READ</td><td>读取徽章计数</td></tr>
-            <tr><td>me.everything.badger.permission.BADGE_COUNT_WRITE</td><td>写入徽章计数</td></tr>
-        </tbody>
-    </table>
-</div>
 
     <h3>10. 联络方式</h3>
     <p>
@@ -1157,6 +1172,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
 
 
 
